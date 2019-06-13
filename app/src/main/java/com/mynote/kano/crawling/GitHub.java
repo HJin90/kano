@@ -1,9 +1,10 @@
 package com.mynote.kano.crawling;
-import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 
 import com.mynote.kano.GitHubService;
-import com.mynote.kano.R;
+import com.mynote.kano.crawling.vo.Branch;
+import com.mynote.kano.crawling.vo.Commit;
+import com.mynote.kano.crawling.vo.Contributors;
+import com.mynote.kano.crawling.vo.Directory;
 import com.mynote.kano.crawling.vo.Repository;
 
 import java.util.List;
@@ -11,14 +12,11 @@ import java.util.List;
 import retrofit2.Call;
 import retrofit2.Retrofit;
 
-    public class GitHub extends AppCompatActivity implements GitHubService {
-        private Retrofit mRetrofit;
-        private GitHubService service;
+    public class GitHub implements GitHubService {
+        private static Retrofit mRetrofit;
+        private static GitHubService service;
 
-        @Override
-        protected void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
-            setContentView(R.layout.activity_main);
+        public GitHub(){
             setRetrofitInit();
         }
 
@@ -29,9 +27,32 @@ import retrofit2.Retrofit;
 
         @Override
         public Call<List<Repository>> listRepos(String user) {
-            Call<List<Repository>> repos = service.listRepos("jeongjiyoun");
+            Call<List<Repository>> repos = service.listRepos(user);
+            return repos;
+        }
 
-            return null;
+        @Override
+        public Call<List<Branch>> listBranch(String user, String repos) {
+            Call<List<Branch>> listBranch = service.listBranch(user,repos);
+            return listBranch;
+        }
+
+        @Override
+        public Call<Contributors> listContributor(String user, String repos) {
+            Call<Contributors> listContributor = service.listContributor(user,repos);
+            return listContributor;
+        }
+
+        @Override
+        public Call<List<Commit>> listCommit(String user, String repos) {
+            Call<List<Commit>> listCommit = service.listCommit(user,repos);
+            return listCommit;
+        }
+
+        @Override
+        public Call<List<Directory>> listDirectory(String user, String repos) {
+            Call<List<Directory>> listDirectory = service.listDirectory(user,repos);
+            return listDirectory;
         }
     }
 

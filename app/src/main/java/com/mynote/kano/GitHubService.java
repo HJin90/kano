@@ -9,9 +9,9 @@ import com.mynote.kano.crawling.vo.Repository;
 import java.util.List;
 
 import retrofit2.Call;
-import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.Path;
+
 
 public interface GitHubService {
 
@@ -21,18 +21,18 @@ public interface GitHubService {
 
     //branch 받아오기
     @GET("repos/{user}/{repos}/branches")
-    Call<List<Branch>> listBranch(@Path("user") String user, @Path("repos") String repos, @Body Branch branch);
+    Call<List<Branch>> listBranch(@Path("user") String user, @Path("repos") String repos);
 
     //contributor 받아오기
     @GET("repos/{user}/{repos}/contributors")
-    Call<Contributors> listContributor(@Path("user") String user, @Path("repos") String repos, @Body Contributors contributors);
+    Call<Contributors> listContributor(@Path("user") String user, @Path("repos") String repos);
 
     //commit내역 가져오기
     @GET("repos/{user}/{repos}/commits")
-    Call<List<Commit>> listCommit(@Path("user") String user, @Path("repos") String repos, @Body Commit commit);
+    Call<List<Commit>> listCommit(@Path("user") String user, @Path("repos") String repos);
 
     //directory 가져오기
     @GET("repos/{user}/{repos}/contents/{sha}")
-    Call<List<Commit>> listDirectory(@Path("user") String user, @Path("repos") String repos, @Body Directory directory);
+    Call<List<Directory>> listDirectory(@Path("user") String user, @Path("repos") String repos);
 
 }

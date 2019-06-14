@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "493589508245-0j3gg1tkcrjs6d2o3luamtctqp6bd418.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mynote.kano",
+            "certificate_hash": "18f2c0be648485e6f0854eddd9fccb136406bcfa"
+          }
+        },
+        {
           "client_id": "493589508245-0k5l9qtj87buok800p5p11t5p5erg0ea.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {

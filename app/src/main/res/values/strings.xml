@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Kano</string>
     <string name="title_activity_write_diary">wirte_diaryActivity</string>
+    <string name="title_activity_calendar">calendarActivity</string>
 </resources>

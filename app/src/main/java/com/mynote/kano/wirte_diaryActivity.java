@@ -9,6 +9,8 @@ import android.view.View;
 
 public class wirte_diaryActivity extends AppCompatActivity {
 
+    String file;   //  fileName - 돌고 도는 선택된 날짜의 파일 이름
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

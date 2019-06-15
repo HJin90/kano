@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">Kano</string>
+    <string name="title_activity_write_diary">write_diary</string>
+    <string name="title_content_write_diary">content_write_diary</string>
+
 </resources>

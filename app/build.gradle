@@ -52,6 +52,7 @@ dependencies {
     implementation dep.recyclerView
     implementation dep.rxandroid
     implementation dep.rxjava2
+    androidTestImplementation 'junit:junit:4.12'
 
 
 }

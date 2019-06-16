@@ -1,4 +1,4 @@
-/*
+
 package com.mynote.kano.gitHubApi.feed;
 
 import android.support.v7.widget.RecyclerView;
@@ -7,9 +7,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.apollographql.apollo.sample.FeedQuery;
-import com.apollographql.apollo.sample.R;
-import com.apollographql.apollo.sample.fragment.RepositoryFragment;
 import com.mynote.kano.R;
 import com.mynote.kano.kano.FeedQuery;
 import com.mynote.kano.kano.fragment.RepositoryFragment;
@@ -32,16 +29,16 @@ class GitHuntFeedRecyclerViewAdapter extends
     this.notifyDataSetChanged();
   }
 
-*/
-/*
+
+
   @Override
   public FeedItemViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
     LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
-    final View itemView = layoutInflater.inflate(R.layout.item_githunt_entry, parent, false);
+    final View itemView = layoutInflater.inflate(R.layout.recycler_view_item, parent, true);
 
     return new FeedItemViewHolder(itemView);
   }
-*//*
+
 
 
   @Override public void onBindViewHolder(FeedItemViewHolder holder, int position) {
@@ -60,8 +57,8 @@ class GitHuntFeedRecyclerViewAdapter extends
 
     FeedItemViewHolder(View itemView) {
       super(itemView);
-      repositoryTitle = (TextView) itemView.findViewById(R.id.tv_repository_name);
-      feedEntryContainer = itemView.findViewById(R.id.feed_entry_container);
+/*      repositoryTitle = (TextView) itemView.findViewById(R.id.tv_repository_name);
+      feedEntryContainer = itemView.findViewById(R.id.feed_entry_container);*/
     }
 
     void setFeedItem(FeedQuery.FeedEntry feedItem, final GitHuntNavigator navigator) {
@@ -77,4 +74,4 @@ class GitHuntFeedRecyclerViewAdapter extends
     }
   }
 }
-*/
+

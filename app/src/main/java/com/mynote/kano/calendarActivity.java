@@ -31,11 +31,11 @@ public class calendarActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
-        datePicker =(DatePicker)findViewById(R.id.datePicker);
+        datePicker = (DatePicker) findViewById(R.id.datePicker);
 
         //오늘 날씨를 받게해주는 것들
         Calendar c = Calendar.getInstance();
-        int cYear =c.get(Calendar.YEAR);
+        int cYear = c.get(Calendar.YEAR);
         int cMonth = c.get(Calendar.MONTH);
         int cDay = c.get(Calendar.DAY_OF_MONTH);
 
@@ -45,15 +45,11 @@ public class calendarActivity extends AppCompatActivity {
         datePicker.init(datePicker.getYear(), datePicker.getMonth(), datePicker.getDayOfMonth(), new DatePicker.OnDateChangedListener() {
             @Override
             public void onDateChanged(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-                pickedDate = year +","+monthOfYear+","+dayOfMonth;
+                pickedDate = year + "," + monthOfYear + "," + dayOfMonth;
 
             }
         });
 
 
-
-
-
     }
-
 }

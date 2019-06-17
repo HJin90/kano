@@ -22,18 +22,20 @@ import okhttp3.OkHttpClient;
 
 public class GitHuntApplication extends Application {
 
-//  private static final String BASE_URL = "http://10.0.2.2:3010/graphql/";
-//  private static final String SUBSCRIPTION_BASE_URL = "ws://10.0.2.2:3010/subscriptions";
-  private static final String BASE_URL = "https://api.githunt.com/graphql";
+  private static final String BASE_URL = "https://api.github.com/graphql";
   private static final String SUBSCRIPTION_BASE_URL = "wss://api.githunt.com/subscriptions";
-
-  private static final String SQL_CACHE_NAME = "githuntdb";
+  private static final String SQL_CACHE_NAME = "jeongjiyoun";
   private ApolloClient apolloClient;
+
+
 
   @Override public void onCreate() {
     super.onCreate();
-    OkHttpClient okHttpClient = new OkHttpClient.Builder()
-        .build();
+    OkHttpClient okHttpClient = new OkHttpClient.Builder().build();
+    ApolloClient apolloClient = ApolloClient.builder()
+            .serverUrl(BASE_URL)
+            .okHttpClient(okHttpClient)
+            .build();
 
     ApolloSqlHelper apolloSqlHelper = new ApolloSqlHelper(this, SQL_CACHE_NAME);
     NormalizedCacheFactory normalizedCacheFactory = new LruNormalizedCacheFactory(EvictionPolicy.NO_EVICTION)

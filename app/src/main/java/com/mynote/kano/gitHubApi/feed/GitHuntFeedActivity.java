@@ -22,6 +22,9 @@ import com.apollographql.apollo.sample.GitHuntApplication;
 import com.apollographql.apollo.sample.R;
 import com.apollographql.apollo.sample.detail.GitHuntEntryDetailActivity;
 import com.apollographql.apollo.sample.type.FeedType;
+import com.mynote.kano.GitHuntApplication;
+import com.mynote.kano.R;
+import com.mynote.kano.kano.FeedQuery;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -74,7 +77,7 @@ public class GitHuntFeedActivity extends AppCompatActivity implements GitHuntNav
     }
   }, uiHandler);
 
-  List<FeedEntry> feedResponseToEntriesWithRepositories(Response<FeedQuery.Data> response) {
+  List<FeedQuery.FeedEntry> feedResponseToEntriesWithRepositories(Response<FeedQuery.Data> response) {
     List<FeedEntry> feedEntriesWithRepos = new ArrayList<>();
     final FeedQuery.Data responseData = response.data();
     if (responseData == null) {

@@ -27,6 +27,8 @@ import com.apollographql.apollo.sample.EntryDetailQuery;
 import com.apollographql.apollo.sample.RepoCommentAddedSubscription;
 import com.mynote.kano.GitHuntApplication;
 import com.mynote.kano.R;
+import com.mynote.kano.kano.EntryDetailQuery;
+import com.mynote.kano.kano.RepoCommentAddedSubscription;
 
 import java.util.ArrayList;
 import java.util.List;

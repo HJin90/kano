@@ -1,0 +1,30 @@
+query ($owner_name: String!, $repository_name: String!, $oid_id:String!) {
+  repository(owner: $owner_name, name: $repository_name) {
+    object(expression:$oid_id) {
+      ... on Commit {
+        history{
+          edges {
+            node {
+              oid
+              changedFiles
+              additions
+              deletions
+              messageHeadline
+              messageBody
+              committedDate
+              committer {
+                name
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+#variables {
+##  "oid_id": "985d45d541b376414a2b78563349c04c97b37876",
+##  "owner_name":"jeongjiyoun",
+##  "repository_name" :"chieUniversity"
+##}

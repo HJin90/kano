@@ -35,43 +35,6 @@ public class GitConnectApplication extends Application {
             .okHttpClient(okHttpClient)
             .build();
 
-    apolloClient.query(
-            FeedQuery.builder()
-                    .limit(10)
-                    .type(FeedType.HOT)
-                    .build()
-    ).enqueue(new ApolloCall.Callback<FeedQuery.Data>() {
-
-      @Override public void onResponse(@NotNull Response<FeedQuery.Data> dataResponse) {
-
-        final StringBuffer buffer = new StringBuffer();
-        for (FeedQuery.Data.Feed feed : dataResponse.data().feed()) {
-          buffer.append("name:" + feed.repository().fragments().repositoryFragment().name());
-          buffer.append(" owner: " + feed.repository().fragments().repositoryFragment().owner().login());
-          buffer.append(" postedBy: " + feed.postedBy().login());
-          buffer.append("\n~~~~~~~~~~~");
-          buffer.append("\n\n");
-        }
-
-        // onResponse returns on a background thread. If you want to make UI updates make sure they are done on the Main Thread.
-        MainActivity.this.runOnUiThread(new Runnable() {
-          @Override public void run() {
-            TextView txtResponse = (TextView) findViewById(R.id.txtResponse);
-            txtResponse.setText(buffer.toString());
-          }
-        });
-
-      }
-
-      @Override
-      public void onFailure(@NotNull ApolloException e) {
-
-      }
-
-      @Override public void onFailure(@NotNull Throwable t) {
-        Log.e(TAG, t.getMessage(), t);
-      }
-    });
   }
 
   public ApolloClient apolloClient() {

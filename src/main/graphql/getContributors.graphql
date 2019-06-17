@@ -1,0 +1,20 @@
+query($repository_name:String!, $owner_name:String!){
+  repository(owner: $owner_name, name: $repository_name) {
+    collaborators(last: 20) {
+      edges {
+        node {
+          bio
+          name
+          id
+          avatarUrl
+          url
+        }
+      }
+    }
+  }
+}
+
+#variables {
+#  "repository_name": "chieUniversity",
+#  "owner_name": "jeongjiyoun"
+#}

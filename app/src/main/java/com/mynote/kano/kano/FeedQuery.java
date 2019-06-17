@@ -31,25 +31,10 @@ import org.jetbrains.annotations.Nullable;
 
 @Generated("Apollo GraphQL")
 public final class FeedQuery implements Query<FeedQuery.Data, FeedQuery.Data, FeedQuery.Variables> {
-  public static final String OPERATION_DEFINITION = "query FeedQuery($type: FeedType!, $limit: Int!) {\n"
-      + "  feedEntries: feed(type: $type, limit: $limit) {\n"
-      + "    __typename\n"
-      + "    id\n"
-      + "    repository {\n"
-      + "      __typename\n"
-      + "      ...RepositoryFragment\n"
-      + "    }\n"
-      + "    postedBy {\n"
-      + "      __typename\n"
-      + "      login\n"
-      + "    }\n"
-      + "  }\n"
-      + "}";
-
+  public static final String OPERATION_DEFINITION = "쿼리구문";
   public static final String OPERATION_ID = "2415816cc409d64da5530e83f25818506181d16148ba741b12268542d7a8b4f6";
 
-  public static final String QUERY_DOCUMENT = OPERATION_DEFINITION + "\n"
-   + RepositoryFragment.FRAGMENT_DEFINITION;
+  public static final String QUERY_DOCUMENT = OPERATION_DEFINITION + "\n" + RepositoryFragment.FRAGMENT_DEFINITION;
 
   public static final OperationName OPERATION_NAME = new OperationName() {
     @Override
@@ -264,6 +249,10 @@ public final class FeedQuery implements Query<FeedQuery.Data, FeedQuery.Data, Fe
         return new Data(feedEntries);
       }
     }
+
+      public class Feed {
+
+      }
   }
 
   public static class FeedEntry {

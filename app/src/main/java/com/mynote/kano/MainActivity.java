@@ -12,7 +12,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button  goDatepickbutton;
+    Button goDatepickbutton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +34,6 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, calendarActivity.class);
         startActivity(intent);
         finish();
+
     }
-
-
 }

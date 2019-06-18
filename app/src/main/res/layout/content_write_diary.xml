@@ -7,24 +7,4 @@
     android:orientation="vertical"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".write_diaryActivity"
-    tools:showIn="@layout/activity_write_diary">
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="날짜"
-        android:textSize="30sp"
-        android:gravity="right"/>
-    <EditText
-        android:id="@+id/edtDiary"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#DDDDDD"
-        android:ems="10"
-        android:gravity="start|center_vertical"
-        android:inputType="text|textMultiLine|textCapSentences"
-        android:padding="7sp"
-        android:text="" />
-
-</LinearLayout>
+    tools:showIn="@layout/activity_write_diary"/>

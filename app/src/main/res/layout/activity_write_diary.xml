@@ -18,14 +18,33 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <include layout="@layout/content_write_diary" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        tools:context=".write_diaryActivity"
+        tools:showIn="@layout/activity_write_diary">
 
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="@dimen/fab_margin"
-        app:srcCompat="@android:drawable/ic_dialog_email" />
+        <TextView
+            android:id="@+id/dateView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:text="날짜"
+            android:textSize="30sp" />
+
+        <EditText
+            android:id="@+id/edtDiary"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#DDDDDD"
+            android:ems="10"
+            android:gravity="start|center_vertical"
+            android:inputType="text|textMultiLine|textCapSentences"
+            android:padding="7sp"
+            android:text="" />
+
+    </LinearLayout>
 
 </android.support.design.widget.CoordinatorLayout>

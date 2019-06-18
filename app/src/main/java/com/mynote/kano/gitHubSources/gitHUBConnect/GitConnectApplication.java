@@ -13,6 +13,7 @@ import okhttp3.Response;
 
 public class GitConnectApplication extends Application {
   /*github graphQL 주소*/
+
   private static final String BASE_URL = "https://api.github.com/graphql";
   //this is raw auth token
 

@@ -4,31 +4,50 @@
     android:layout_height="wrap_content"
     android:orientation="vertical">
 
+    <View
+        android:id="@+id/view"
+        android:layout_width="match_parent"
+        android:layout_height="79dp"
+        android:layout_weight="1" />
+
+    <TextView
+        android:id="@+id/SelectMenu"
+        android:layout_width="match_parent"
+        android:layout_height="132dp"
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:text="SELECT MENU"
+        android:textAlignment="center"
+        android:textColor="#000000"
+        android:textSize="40dp"
+        android:textStyle="bold" />
+
     <Button
         android:id="@+id/diary_button"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="166dp"
         android:layout_weight="1"
-        android:textSize="50dp"
-        android:text="diary"
         android:background="@drawable/buttonshape"
-        android:textColor="#FFFFFF"
         android:shadowColor="#C9C9C9"
         android:shadowDx="0"
         android:shadowDy="0"
-        android:shadowRadius="5"/>
+        android:shadowRadius="5"
+        android:text="diary"
+        android:textColor="#FFFFFF"
+        android:textSize="50dp" />
 
     <Button
         android:id="@+id/memo_button"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="166dp"
         android:layout_weight="1"
-        android:textSize="50dp"
-        android:text="memo"
         android:background="@drawable/buttonshape_gray"
-        android:textColor="#FFFFFF"
-        android:shadowColor="#FFFFFF"
+        android:shadowColor="#ABABAB"
         android:shadowDx="0"
         android:shadowDy="0"
-        android:shadowRadius="5"/>
+        android:shadowRadius="5"
+        android:text="memo"
+        android:textSize="50dp" />
+    <!--android:textColor="#FFFFFF"
+        android:shadowColor="#FFFFFF"-->
 </LinearLayout>

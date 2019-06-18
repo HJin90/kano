@@ -1,8 +1,7 @@
 module.exports = {
   service: {
     name:'jeongjiyoun-9176',
-    localSchemaFile: './src/main/graphql/schema.graphql',
-    ENGINE_API_KEY: 'yzZU7AGP0fRGXWabbFG13A',
+    localSchemaFile: './src/main/graphql/schema.json',
     endpoint:"https://api.github.com/graphql",
     service: {
             url: "https://api.github.com/graphql",
@@ -11,5 +10,8 @@ module.exports = {
             "src/main/graphql/.{ts,tsx,js,jsx,graphql}"
         ]
 
-  }
+  },
+    engine: {
+      apiKey: apollo.env.ENGINE_API_KEY
+    },
 };

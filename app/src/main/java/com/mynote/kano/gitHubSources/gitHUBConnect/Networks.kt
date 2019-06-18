@@ -1,3 +1,4 @@
+/*
 package com.mynote.kano.gitHubSources.gitHUBConnect
 
 import android.content.Context
@@ -73,4 +74,4 @@ class Network {
                 .addCustomTypeAdapter(CustomType.TIMESTAMPTZ, dateCustomTypeAdapter)
                 .build()
     }
-}
+}*/

@@ -55,8 +55,11 @@ public class calendarActivity extends AppCompatActivity {
     }
 
     public void goDiary(View v){
-        Intent intent = new Intent();
-        intent.putExtra("date","pickedDate");
+        Intent intent = new Intent(getApplicationContext(),write_diaryActivity.class);
+        //diaryDate 객체 생성
+        diaryDate diaryDate = new diaryDate(pickedDate);
+        intent.putExtra("diaryDate","pickedDate");
+
         startActivityForResult(intent, REQUEST_CODE_MENU);
     }
 

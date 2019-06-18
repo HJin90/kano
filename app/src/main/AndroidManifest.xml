@@ -14,7 +14,7 @@
             android:label="@string/title_activity_calendar"
             android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
-            android:name=".wirte_diaryActivity"
+            android:name=".write_diaryActivity"
             android:label="@string/title_activity_write_diary"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".MainActivity">

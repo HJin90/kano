@@ -1,5 +1,6 @@
 package com.mynote.kano;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -7,9 +8,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 
-public class wirte_diaryActivity extends AppCompatActivity {
+public class write_diaryActivity extends AppCompatActivity {
 
     String file;   //  fileName - 돌고 도는 선택된 날짜의 파일 이름
+    String diaryDate;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +28,19 @@ public class wirte_diaryActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+        Intent intent = new Intent();
+        processIntent(intent);
     }
+
+    private static void processIntent(Intent intent){
+        if(intent != null){
+            Bundle bundle= intent.getExtras();
+            diaryDate date22 = bundle.getParcelable("diaryDatie");
+            if (intent != null){
+                textView.setText(date22.diaryDate);
+            }
+        }
+    }
+
 
 }

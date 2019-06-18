@@ -7,6 +7,7 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.TextView;
 
 public class write_diaryActivity extends AppCompatActivity {
 
@@ -32,12 +33,14 @@ public class write_diaryActivity extends AppCompatActivity {
         processIntent(intent);
     }
 
-    private static void processIntent(Intent intent){
+    private void processIntent(Intent intent){
         if(intent != null){
             Bundle bundle= intent.getExtras();
-            diaryDate date22 = bundle.getParcelable("diaryDatie");
+            diaryDate date22 = bundle.getParcelable("diaryDate");
             if (intent != null){
-                textView.setText(date22.diaryDate);
+                /*textView.setTtext
+                TextView.setText(date22.diaryDate);
+            */
             }
         }
     }

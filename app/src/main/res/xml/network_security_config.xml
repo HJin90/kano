@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
-<!--
+<resources>
 <network-security-config>
     <base-config>
         <trust-anchors>
@@ -12,4 +11,5 @@
             <certificates src="user" />
         </trust-anchors>
     </debug-overrides>
-</network-security-config>-->
+</network-security-config>
+</resources>

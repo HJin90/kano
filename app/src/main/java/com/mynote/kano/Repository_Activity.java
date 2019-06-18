@@ -12,6 +12,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 
+import com.mynote.kano.gitHubSources.gitHUBConnect.GitConnectApplication;
+
 
 public class Repository_Activity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -21,9 +23,10 @@ public class Repository_Activity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_repository);
+        GitConnectApplication gitConectionApplication = new GitConnectApplication();
+
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(

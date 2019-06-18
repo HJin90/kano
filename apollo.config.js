@@ -1,17 +1,24 @@
 module.exports = {
-  service: {
+    client :{
+        type : 'client',
+        name : 'jeongjiyoun-9716'
+
+        service: {
     name:'jeongjiyoun-9176',
-    localSchemaFile: './src/main/graphql/schema.json',
-    endpoint:"https://api.github.com/graphql",
+    finally endpoint:"https://api.github.com/graphql",
     service: {
-            url: "https://api.github.com/graphql",
+            name : "GitHub",
+            localSchemaFile: 'schema.json',
+            finally url: "https://api.github.com/graphql",
         },
         includes: [
-            "src/main/graphql/.{ts,tsx,js,jsx,graphql}"
-        ]
-
+            "*.{ts,tsx,js,jsx,graphql}"
+        ],
+         skipSSLValidation: true
   },
     engine: {
-      apiKey: apollo.env.ENGINE_API_KEY
+      apiKey: "apollo.env.ENGINE_API_KEY"
     },
+    }
+
 };

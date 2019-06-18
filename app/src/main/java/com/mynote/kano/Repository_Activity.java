@@ -23,7 +23,8 @@ public class Repository_Activity extends AppCompatActivity
         setContentView(R.layout.activity_repository);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        FloatingActionButton fab = findViewById(R.id.fab);
+/*        FloatingActionButton fab = findViewById(R.id.fab);*//*
+
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -31,6 +32,7 @@ public class Repository_Activity extends AppCompatActivity
                         .setAction("Action", null).show();
             }
         });
+*/
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -88,7 +90,8 @@ public class Repository_Activity extends AppCompatActivity
 
         } else if (id == R.id.nav_share) {
 
-        } else if (id == R.id.nav_send) {
+        } else
+            if (id == R.id.nav_send) {
 
         }
 

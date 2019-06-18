@@ -1,10 +1,10 @@
 {
-  "name": "Untitled GraphQL Schema",
-  "schemaPath": "schema.graphql",
+  "name": "Kano GraphQL Schema",
+  "schemaPath": "schema.json",
   "extensions": {
     "endpoints": {
       "Default GraphQL Endpoint": {
-        "url": "http://localhost:8080/graphql",
+        "url": "https://api.github.com/graphql",
         "headers": {
           "user-agent": "JS GraphQL"
         },

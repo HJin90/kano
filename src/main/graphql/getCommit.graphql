@@ -1,4 +1,4 @@
-query ($owner_name: String!, $repository_name: String!, $oid_id:String!) {
+query FeedQuery($owner_name: String!, $repository_name: String!, $oid_id:String!) {
   repository(owner: $owner_name, name: $repository_name) {
     object(expression:$oid_id) {
       ... on Commit {

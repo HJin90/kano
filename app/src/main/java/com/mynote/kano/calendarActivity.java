@@ -43,7 +43,8 @@ public class calendarActivity extends AppCompatActivity {
         datePicker.init(datePicker.getYear(), datePicker.getMonth(), datePicker.getDayOfMonth(), new DatePicker.OnDateChangedListener() {
             @Override
             public void onDateChanged(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-                pickedDate = year + "," + monthOfYear + "," + dayOfMonth;
+                monthOfYear=monthOfYear+1;
+                pickedDate = year + "," + monthOfYear+ "," + dayOfMonth;
                 System.out.print(pickedDate);
             }
         });

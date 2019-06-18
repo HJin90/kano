@@ -35,7 +35,7 @@
             android:textSize="30sp" />
 
         <EditText
-            android:id="@+id/edtDiary"
+            android:id="@+id/diaryContent"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="#DDDDDD"

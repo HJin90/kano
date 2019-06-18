@@ -1,4 +1,6 @@
 
+
+
 buildscript {
     apply from: rootProject.file("gradle/dependencies.gradle")
 
@@ -11,6 +13,7 @@ buildscript {
     dependencies {
         classpath dep.gradleErrorpronePlugin
     }
+
 }
 subprojects {
 

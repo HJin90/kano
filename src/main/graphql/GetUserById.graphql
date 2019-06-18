@@ -1,4 +1,4 @@
-query FeedQuery($loginId:ID!) {
+query GetUserById ($loginId:ID!) {
   node(id:$loginId) {
    ... on User {
       name

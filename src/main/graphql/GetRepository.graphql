@@ -1,4 +1,4 @@
-query($loginId:ID!) {
+query GetRepository ($loginId:ID!) {
   node(id:$loginId) {
    ... on User{
     	repositories(first:30){

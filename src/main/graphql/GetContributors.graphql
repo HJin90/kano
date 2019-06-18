@@ -1,4 +1,4 @@
-query($repository_name:String!, $owner_name:String!){
+query GetContributors ($repository_name:String!, $owner_name:String!){
   repository(owner: $owner_name, name: $repository_name) {
     collaborators(last: 20) {
       edges {

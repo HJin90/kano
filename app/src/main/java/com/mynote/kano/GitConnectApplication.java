@@ -1,4 +1,4 @@
-package com.mynote.kano.gitHubSources.gitHUBConnect;
+package com.mynote.kano;
 
 import android.app.Application;
 import android.util.Log;

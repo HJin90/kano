@@ -12,10 +12,10 @@ import com.google.firebase.database.FirebaseDatabase;
 import android.widget.EditText;
 import android.widget.TextView;
 
-
+//엉망이다아아아아 꺄아아아아아아아아아 내일은 제발 잘되었으면
 public class write_diaryActivity extends AppCompatActivity {
 
-    private EditText diaryContent =(EditText)findViewById(R.id.diaryContent);
+    private EditText diaryContent;
     private String diaryDate;
     private String userId;
 
@@ -30,22 +30,34 @@ public class write_diaryActivity extends AppCompatActivity {
         Intent intent = getIntent();
         diaryDate = intent.getExtras().getString("diaryDate");
         userId = intent.getExtras().getString("userId");
-        if(diaryDate!= null) {
+
+        if(intent!= null) {
             TextView tx1 =findViewById(R.id.dateView);
             tx1.setText(diaryDate);
         }
 
     }
 
-    private void writeNewDiary(String userId, String diaryDate, String diaryContent){
-        User user = new User(userId, diaryDate, diaryContent);
+    private void writeNewDiary(View view){
+
         // Write a message to the database
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference();
+
+        Intent intent = getIntent();
+        diaryDate = intent.getExtras().getString("diaryDate");
+        userId = intent.getExtras().getString("userId");
+
+/*
+        User user = new User(userId, diaryDate, diaryContent);
+*/
 
         myRef.child("Users").child(userId).setValue(userId);
         myRef.child("Users").child(userId).child("diaryContent").setValue(diaryContent);
         myRef.child("Users").child(userId).child("diaryDate").setValue(diaryDate);
 
+        Intent intent2 = new Intent(this, calendarActivity.class);
+        startActivity(intent2);
+        finish();
     }
 }

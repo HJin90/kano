@@ -37,13 +37,21 @@
         <EditText
             android:id="@+id/diaryContent"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="436dp"
             android:background="#DDDDDD"
             android:ems="10"
             android:gravity="start|center_vertical"
             android:inputType="text|textMultiLine|textCapSentences"
             android:padding="7sp"
             android:text="" />
+
+        <Button
+            android:id="@+id/saveButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:onClick="writeNewDiary"
+            android:text="save" />
 
     </LinearLayout>
 

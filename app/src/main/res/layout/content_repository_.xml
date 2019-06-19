@@ -54,7 +54,7 @@
         app:layout_constraintTop_toTopOf="@id/guide_Contents">
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/textView20"
             android:layout_width="327dp"
             android:layout_height="wrap_content"
             android:lineSpacingExtra="8sp"

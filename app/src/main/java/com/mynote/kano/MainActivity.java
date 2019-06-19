@@ -3,23 +3,50 @@ package com.mynote.kano;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.widget.TextView;
 
-import java.util.logging.Logger;
+import com.apollographql.apollo.ApolloCall;
+import com.apollographql.apollo.ApolloClient;
+import com.apollographql.apollo.api.Response;
+import com.apollographql.apollo.exception.ApolloException;
+
+import javax.annotation.Nonnull;
 
 public class MainActivity extends AppCompatActivity {
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         GitConnectApplication gitConnectApplication = new GitConnectApplication();
-        GetCommitQuery getCommitQuery
-                = GetCommitQuery.builder()
-                .owner_name("jeongjiyoun")
-                .oid_id("")
-                .repository_name("CSMS")
-                .build();
-        Log.println(0,"to",getCommitQuery.toString());
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        ApolloClient apolloClient = gitConnectApplication.getApolloClient();
+
+        GetRepositoryQuery getRepositoryQuery
+                = GetRepositoryQuery.builder()
+                .loginId("jeongjiyoun").build();
+
+        apolloClient.query(getRepositoryQuery).enqueue(new ApolloCall.Callback<GetRepositoryQuery.Data>() {
+
+            @Override
+            public void onResponse(@Nonnull Response<GetRepositoryQuery.Data> response) {
+                try{
+                    String k = response.data().toString();
+                    TextView tv = findViewById(R.id.textView20);
+                    tv.setText(k);
+
+                } catch (Exception e) {
+                    Log.e("1", e.getMessage(), e);
+
+                }
+            }
+
+            @Override
+            public void onFailure(@Nonnull ApolloException e) {
+                Log.e("1", e.getMessage(), e);
+            }
+        });
+
     }
 }

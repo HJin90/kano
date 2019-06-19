@@ -52,7 +52,7 @@ public class GitConnectApplication extends Application {
                       Request.Builder builder = original.newBuilder().method(original.method(), original.body());
                       /*because you need an authorization to access Github GraphQL,
                       you put a data into header */
-//                      builder.header("Authorization", authHeader);
+                      builder.header("Authorization", authHeader);
                       return chain.proceed(builder.build());
                   }
               }).build();

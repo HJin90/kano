@@ -36,6 +36,7 @@ dependencies {
 
     implementation 'org.jetbrains:annotations:13.0'
     implementation "com.apollographql.apollo:apollo-runtime:0.5.0"
+    implementation 'com.android.support:multidex:1.0.0'
 
     testCompileOnly 'org.jetbrains:annotations:13.0'
 }

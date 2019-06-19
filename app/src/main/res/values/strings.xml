@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Kano</string>
+    <color name="background">#E6E6E6</color>
 </resources>

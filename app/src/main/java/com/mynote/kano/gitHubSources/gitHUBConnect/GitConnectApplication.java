@@ -1,6 +1,7 @@
 package com.mynote.kano.gitHubSources.gitHUBConnect;
 
 import android.app.Application;
+import android.util.Log;
 
 import com.apollographql.apollo.ApolloClient;
 
@@ -52,10 +53,12 @@ public class GitConnectApplication extends Application {
                       Request.Builder builder = original.newBuilder().method(original.method(), original.body());
                       /*because you need an authorization to access Github GraphQL,
                       you put a data into header */
-                      builder.header("Authorization", authHeader);
+//                      builder.header("Authorization", authHeader);
                       return chain.proceed(builder.build());
                   }
               }).build();
+
+            /*why? why it doesn't generate class file....?*/
 
       /*pass instance of the OkHttpClient to the ApolloClient builder*/
               apolloClient = ApolloClient.builder()

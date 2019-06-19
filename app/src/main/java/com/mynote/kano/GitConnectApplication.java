@@ -1,7 +1,6 @@
 package com.mynote.kano;
 
 import android.app.Application;
-import android.util.Log;
 
 import com.apollographql.apollo.ApolloClient;
 

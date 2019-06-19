@@ -8,13 +8,17 @@ import android.view.LayoutInflater;
 import android.view.View;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+
+import android.widget.EditText;
 import android.widget.TextView;
 
 
 public class write_diaryActivity extends AppCompatActivity {
 
-    String diaryContent;   //  fileName - 돌고 도는 선택된 날짜의 파일 이름
-    String diaryDate;
+    private EditText diaryContent;   //  fileName - 돌고 도는 선택된 날짜의 파일 이름
+    private String diaryDate;
+    private String userId;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

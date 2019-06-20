@@ -54,7 +54,7 @@ public class SignInOutActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.github_loginpage);
 
         // Progress Bar
         progressBar = (ProgressBar) findViewById(R.id.progress_bar);

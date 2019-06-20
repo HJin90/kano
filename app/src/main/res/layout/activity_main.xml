@@ -6,10 +6,25 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <Button
-        android:id="@+id/goDatepickbutton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="goDatepick"
-        android:text="Button" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/goDatepickBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="goDatepick"
+            android:text="goDatepick" />
+
+        <Button
+            android:id="@+id/commitBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="goCommit"
+            android:text="goCommit" />
+    </LinearLayout>
+
+
 </android.support.constraint.ConstraintLayout>

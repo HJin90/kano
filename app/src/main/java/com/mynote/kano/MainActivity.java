@@ -10,7 +10,6 @@ import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button goDatepickbutton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +21,13 @@ public class MainActivity extends AppCompatActivity {
         goDatepickbutton.setOnClickListener(this);*/
     }
 
+
+
+    public void goCommit(View V){
+        Intent intent2 = new Intent(this, CommitActivity.class);
+        startActivity(intent2);
+        finish();
+    }
     public void goDatepick(View v) {
         // TODO Auto-generated method stub
         Intent intent = new Intent(this, calendarActivity.class);

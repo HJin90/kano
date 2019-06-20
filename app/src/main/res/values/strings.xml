@@ -2,8 +2,8 @@
     <string name="app_name">Kano</string>
 
 
-    <string name="github_client_id">YOUR GITHUB CLIENT ID</string>
-    <string name="github_client_secret">YOUR GITHUB CLIENT SECRET</string>
-    <string name="github_redirect_url">YOUR REDIRECT URL</string>
+    <string name="github_client_id">8c5a06603bdeb2f02775</string>
+    <string name="github_client_secret">64fa4a7116bd4cccfedf1ce8c5425a32eca797fb</string>
+    <string name="github_redirect_url">https://kano-243302.firebaseapp.com/__/auth/handler</string>
     <string name="github_token">YOUR GITHUB TOKEN</string>
 </resources>

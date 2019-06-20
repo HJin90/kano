@@ -7,10 +7,13 @@ import android.widget.TextView;
 
 import com.apollographql.apollo.ApolloCall;
 import com.apollographql.apollo.ApolloClient;
+import com.apollographql.apollo.api.Query;
 import com.apollographql.apollo.api.Response;
 import com.apollographql.apollo.exception.ApolloException;
 
 import javax.annotation.Nonnull;
+
+import okhttp3.OkHttpClient;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -22,31 +25,50 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         ApolloClient apolloClient = gitConnectApplication.getApolloClient();
+        OkHttpClient okHttpClient = gitConnectApplication.getOkHttpClient();
+        if (okHttpClient != null) {
+            GetRepositoryQuery getRepositoryQuery
+                    = GetRepositoryQuery.builder()
+                    .loginId("jeongjiyoun").build();
 
-        GetRepositoryQuery getRepositoryQuery
-                = GetRepositoryQuery.builder()
-                .loginId("jeongjiyoun").build();
+            if (apolloClient != null) {
+                ApolloCall query = apolloClient
+                        .query(getRepositoryQuery);
 
-        apolloClient.query(getRepositoryQuery).enqueue(new ApolloCall.Callback<GetRepositoryQuery.Data>() {
+                if (query != null) {
 
-            @Override
-            public void onResponse(@Nonnull Response<GetRepositoryQuery.Data> response) {
-                try{
-                    String k = response.data().toString();
+                    query.enqueue(new ApolloCall.Callback<GetRepositoryQuery.Data>() {
+
+
+                        @Override
+                        public void onResponse(@Nonnull Response<GetRepositoryQuery.Data> response) {
+                            try {
+                                String k = response.data().toString();
+                                TextView tv = findViewById(R.id.textView20);
+                                tv.setText(k);
+
+                            } catch (Exception e) {
+                                Log.e("1", e.getMessage(), e);
+
+                            }
+                        }
+
+                        @Override
+                        public void onFailure(@Nonnull ApolloException e) {
+                            Log.e("1", e.getMessage(), e);
+                        }
+                    });
+                } else {
                     TextView tv = findViewById(R.id.textView20);
-                    tv.setText(k);
-
-                } catch (Exception e) {
-                    Log.e("1", e.getMessage(), e);
-
+                    tv.setText("query is null");
                 }
+            } else {
+                TextView tv = findViewById(R.id.textView20);
+                tv.setText("apollo is null");
             }
-
-            @Override
-            public void onFailure(@Nonnull ApolloException e) {
-                Log.e("1", e.getMessage(), e);
-            }
-        });
-
+        } else {
+            TextView tv = findViewById(R.id.textView20);
+            tv.setText("ok is null");
+        }
     }
 }

@@ -6,6 +6,7 @@
       "Default GraphQL Endpoint": {
         "url": "https://api.github.com/graphql",
         "headers": {
+          "Authorization" : "52420e39c861adba1cf436d142a821121d5dc32f",
           "user-agent": "JS GraphQL"
         },
         "retry" : true,

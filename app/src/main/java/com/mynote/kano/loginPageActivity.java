@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-
+/*
 public class loginPageActivity extends AppCompatActivity{
 
 
@@ -81,13 +81,14 @@ public class loginPageActivity extends AppCompatActivity{
         //    idView.setText(R.string.signed_out);
             emailView.setText(null);
         }
-/*
+
         // Button visibility
         findViewById(R.id.buttonAnonymousSignIn).setEnabled(!isSignedIn);
         findViewById(R.id.buttonAnonymousSignOut).setEnabled(isSignedIn);
         findViewById(R.id.buttonLinkAccount).setEnabled(isSignedIn);
-        */
+
 
     }
 
 }
+*/

@@ -34,7 +34,7 @@
         </activity>
 
         <activity android:name=".SelectPageActivity"></activity>
-        <activity android:name=".loginPageActivity" />
+        <!--<activity android:name=".loginPageActivity" />-->
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

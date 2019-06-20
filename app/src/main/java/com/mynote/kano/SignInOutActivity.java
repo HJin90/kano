@@ -222,7 +222,7 @@ public class SignInOutActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call call, Response response) throws IOException {
 
-                // e.g. Response form : access_token=06db6cbbe7a930d7294f36882850638cf14cd610&token_type=bearer
+                // e.g. Response form : access_token=e72e16c7e42f292c6912e7710c838347ae178b4a&token_type=bearer
                 String responseBody = response.body().string();
                 String[] splittedBody = responseBody.split("=|&");
 

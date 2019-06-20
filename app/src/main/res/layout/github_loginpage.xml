@@ -75,9 +75,6 @@
                 android:layout_margin="8dp"
                 android:text=""
                 tools:text="e-mail" />
-
         </LinearLayout>
-
     </RelativeLayout>
-
 </RelativeLayout>

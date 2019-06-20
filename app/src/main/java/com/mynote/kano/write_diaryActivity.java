@@ -2,20 +2,25 @@ package com.mynote.kano;
 
 import android.content.Intent;
 import android.os.Bundle;
+
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.LayoutInflater;
+import android.text.TextUtils;
 import android.view.View;
+
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
-//엉망이다아아아아 꺄아아아아아아아아아 내일은 제발 잘되었으면
+
 public class write_diaryActivity extends AppCompatActivity {
 
     private EditText diaryContent;
+    private String dContent;
     private String diaryDate;
     private String userId;
 
@@ -35,29 +40,43 @@ public class write_diaryActivity extends AppCompatActivity {
             TextView tx1 =findViewById(R.id.dateView);
             tx1.setText(diaryDate);
         }
-
+        Button saveBtn = (Button)findViewById(R.id.saveBtn);
+        saveBtn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                saveDiary();
+            }
+        });
     }
 
-    private void writeNewDiary(View view){
-
-        // Write a message to the database
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = database.getReference();
-
+    private void saveDiary(){
         Intent intent = getIntent();
         diaryDate = intent.getExtras().getString("diaryDate");
-        userId = intent.getExtras().getString("userId");
+       //userId 바꿔주기
+     /*   userId = intent.getExtras().getString("userId");*/
+        userId = "jihye";
+        diaryContent = (EditText)findViewById(R.id.diaryContent);
+        dContent = diaryContent.getText().toString();
 
-/*
-        User user = new User(userId, diaryDate, diaryContent);
-*/
+        if (!TextUtils.isEmpty(dContent)){
+            // Write a message to the database
+            FirebaseDatabase database = FirebaseDatabase.getInstance();
+            DatabaseReference myRef = database.getReference("User");
 
-        myRef.child("Users").child(userId).setValue(userId);
-        myRef.child("Users").child(userId).child("diaryContent").setValue(diaryContent);
-        myRef.child("Users").child(userId).child("diaryDate").setValue(diaryDate);
+            User user = new User(userId, diaryDate, dContent);
 
-        Intent intent2 = new Intent(this, calendarActivity.class);
-        startActivity(intent2);
-        finish();
+            myRef.child("Users").child(userId).setValue(userId);
+            myRef.child("Users").child(userId).child("diaryDate").push().setValue(diaryDate);
+            myRef.child("Users").child(userId).child("diaryDate").child("diaryContent").push().setValue(dContent);
+
+            Intent intent2 = new Intent(this, calendarActivity.class);
+            startActivity(intent2);
+
+        }else{
+            Toast.makeText(this,"내용입력 ㄱㄱ",Toast.LENGTH_LONG).show();
+        }
+
     }
+
+
 }

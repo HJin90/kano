@@ -3,6 +3,7 @@ package com.mynote.kano;
 import android.app.Application;
 
 import com.apollographql.apollo.ApolloClient;
+import com.apollographql.apollo.subscription.WebSocketSubscriptionTransport;
 
 import java.io.IOException;
 
@@ -25,27 +26,20 @@ public class GitConnectApplication extends Application {
     private static OkHttpClient okHttpClient;
 
 
-    private PistolLogger logger = new PistolLogger();
-
-
+    //Creating a Client
     @Override
     public void onCreate() {
         super.onCreate();
 
-        //Creating a Client
-
       /*
       With the installation complete and schema downloaded,
       let's create your Apollo Client.
-      In most cases, you’ll want to create a single shared instance of ApolloClient
-      and point it at your GraphQL server.
       ApolloClient uses OkHttp under the hood for handling network requests.
       So you will need to create an instance of the OkHttpClient
       and pass it to the ApolloClient builder.
        */
 
         /*create an instance of the OkHttpClient*/
-
         okHttpClient = new OkHttpClient.Builder().addInterceptor(
 /*
                   This android project Java version does not supports Lambda Expressions
@@ -64,15 +58,14 @@ public class GitConnectApplication extends Application {
                         return chain.proceed(builder.build());
                     }
                 }).build();
-
+        System.out.println(okHttpClient.toString());
         if (okHttpClient != null) {
             /*pass instance of the OkHttpClient to the ApolloClient builder*/
             apolloClient = ApolloClient.builder()
                     .serverUrl(BASE_URL)
                     .okHttpClient(okHttpClient)
+                    .subscriptionTransportFactory(new WebSocketSubscriptionTransport.Factory("wss://api.githunt.com/subscriptions", okHttpClient))
                     .build();
-        } else {
-            logger.LOGI("client is null");
         }
     }
 
@@ -85,7 +78,6 @@ public class GitConnectApplication extends Application {
         if (apolloClient != null) {
             System.out.println(apolloClient.toString());
         } else {
-            logger.LOGI("client is null");
         }
         return apolloClient;
 

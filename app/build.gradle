@@ -20,12 +20,16 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
     lintOptions {
         textReport true
         textOutput 'stdout'
         ignore 'InvalidPackage', 'GoogleAppIndexingWarning', 'AllowBackup'
     }
     sourceSets { main { res.srcDirs = ['src/main/res', 'src/main/res/xml'] } }
+}
+apollo {
+    customTypeMapping = ['URI' : "java.lang.String"]
 }
 
 dependencies {
@@ -35,10 +39,9 @@ dependencies {
     implementation 'com.android.support:design:28.0.0'
 
     implementation 'org.jetbrains:annotations:13.0'
-    implementation "com.apollographql.apollo:apollo-runtime:0.5.0"
-    implementation "com.apollographql.apollo:apollo-android-support:0.5.0"
-    implementation "com.apollographql.apollo:apollo-rx2-support:0.5.0"
-
+    implementation "com.apollographql.apollo:apollo-runtime:0.4.2"
+    implementation "com.apollographql.apollo:apollo-android-support:0.4.2"
+    implementation "com.apollographql.apollo:apollo-rx2-support:0.4.2"
 
     implementation 'com.android.support:multidex:1.0.0'
 

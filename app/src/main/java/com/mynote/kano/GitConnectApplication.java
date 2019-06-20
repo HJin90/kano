@@ -1,11 +1,13 @@
 package com.mynote.kano;
 
-import android.app.Application;
 
 import com.apollographql.apollo.ApolloClient;
-import com.apollographql.apollo.subscription.WebSocketSubscriptionTransport;
+import com.apollographql.apollo.CustomTypeAdapter;
+import com.mynote.kano.type.CustomType;
 
 import java.io.IOException;
+
+import javax.annotation.Nonnull;
 
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
@@ -13,23 +15,19 @@ import okhttp3.Request;
 import okhttp3.Response;
 
 
-public class GitConnectApplication extends Application {
+public class GitConnectApplication {
     /*github graphQL 주소*/
 
-    private static final String BASE_URL = "https://api.github.com/graphql";
-    //this is raw auth token
 
-    //1. 암호화가 필요한지
-    //2. 프로젝트 내에 넣을 수는 없으므로, 다른 방식을 강구해보기
-    private static String authHeader = "52420e39c861adba1cf436d142a821121d5dc32f";
+
+    private static final String BASE_URL = "https://api.github.com/graphql";
+    private static String authHeader = "bearer 006ea3dd9c06eb49e3f9ca9cb7d58badc26177f6";
     private static ApolloClient apolloClient;
     private static OkHttpClient okHttpClient;
 
 
     //Creating a Client
-    @Override
-    public void onCreate() {
-        super.onCreate();
+    public GitConnectApplication(){
 
       /*
       With the installation complete and schema downloaded,
@@ -58,13 +56,13 @@ public class GitConnectApplication extends Application {
                         return chain.proceed(builder.build());
                     }
                 }).build();
-        System.out.println(okHttpClient.toString());
+
+
         if (okHttpClient != null) {
             /*pass instance of the OkHttpClient to the ApolloClient builder*/
             apolloClient = ApolloClient.builder()
                     .serverUrl(BASE_URL)
                     .okHttpClient(okHttpClient)
-                    .subscriptionTransportFactory(new WebSocketSubscriptionTransport.Factory("wss://api.githunt.com/subscriptions", okHttpClient))
                     .build();
         }
     }

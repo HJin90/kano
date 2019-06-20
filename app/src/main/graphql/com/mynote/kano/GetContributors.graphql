@@ -13,8 +13,3 @@ query GetContributors ($repository_name:String!, $owner_name:String!){
     }
   }
 }
-
-#variables {
-#  "repository_name": "chieUniversity",
-#  "owner_name": "jeongjiyoun"
-#}

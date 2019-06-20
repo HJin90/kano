@@ -1,17 +1,13 @@
-query GetRepository ($loginId:ID!) {
-  node(id:$loginId) {
-   ... on User{
-    	repositories(first:30){
-      	nodes{
-          name
-          description
-          url
+query GetRepository ($loginId: ID!) {
+    node(id: $loginId) {
+        ... on User {
+            repositories(first: 30) {
+                nodes{
+                    name
+                    description
+                    url
+                }
+            }
         }
-    	}
     }
-  }
 }
-
-#variables {
-#  "loginId": "MDQ6VXNlcjQ2MjcxNzkz"
-#}

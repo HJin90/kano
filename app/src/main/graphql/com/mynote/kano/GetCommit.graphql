@@ -22,9 +22,3 @@ query GetCommit ($owner_name: String!, $repository_name: String!, $oid_id:String
     }
   }
 }
-
-#variables {
-##  "oid_id": "985d45d541b376414a2b78563349c04c97b37876",
-##  "owner_name":"jeongjiyoun",
-##  "repository_name" :"chieUniversity"
-##}

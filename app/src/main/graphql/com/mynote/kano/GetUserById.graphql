@@ -3,11 +3,7 @@ query GetUserById ($loginId:ID!) {
    ... on User {
       name
       login
-    url
+       url
     }
   }
 }
-
-#variables {
-#  "loginId": "MDQ6VXNlcjQ2MjcxNzkz"
-#}

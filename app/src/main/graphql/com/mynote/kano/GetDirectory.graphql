@@ -16,10 +16,3 @@ query GetDirectory ($owner_name:String!, $repository_name:String!, $url:String!)
     }
   }
 }
-
-#variables {
-#  "url": "master:",
-#  "owner_name":"jeongjiyoun",
-#  "repository_name" :"chieUniversity"
-#}
-#

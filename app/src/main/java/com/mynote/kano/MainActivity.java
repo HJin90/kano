@@ -1,8 +1,6 @@
 package com.mynote.kano;
 
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.TextView;
@@ -12,22 +10,21 @@ import com.apollographql.apollo.ApolloClient;
 import com.apollographql.apollo.api.Response;
 import com.apollographql.apollo.exception.ApolloException;
 
+import org.w3c.dom.Text;
+
 import javax.annotation.Nonnull;
 
 import okhttp3.OkHttpClient;
 
 public class MainActivity extends AppCompatActivity {
 
-   private static Response<GetRepositoryQuery.Data> data;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         GitConnectApplication gitConnectApplication = new GitConnectApplication();
         ApolloClient apolloClient = gitConnectApplication.getApolloClient();
-        OkHttpClient okHttpClient = gitConnectApplication.getOkHttpClient();
 
         GetRepositoryQuery getRepositoryQuery
                 = GetRepositoryQuery.builder()
@@ -35,13 +32,12 @@ public class MainActivity extends AppCompatActivity {
 
         ApolloCall query = apolloClient
                 .query(getRepositoryQuery);
-
+        final String[] k = {null};
         query.enqueue(new ApolloCall.Callback<GetRepositoryQuery.Data>() {
             @Override
             public void onResponse(@Nonnull Response<GetRepositoryQuery.Data> response) {
-                data = response;
-                String k = response.data().toString();
-                Log.v("태그", k);
+                k[0] = response.data().toString();
+                Log.v("태그", k[0]);
             }
 
             @Override
@@ -49,16 +45,8 @@ public class MainActivity extends AppCompatActivity {
                 Log.e("1", e.getMessage(), e);
             }
         });
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-        String k = data.data().toString();
-        Log.v("태그", k);
-/*
-        TextView textView = findViewById(R.id.textView20);
-        textView.setText(data.data().toString());
-*/
+        Log.v("태크",k[0]);
+    /*  TextView mTextView = findViewById(R.id.textView20);
+        mTextView.setText("Response is: "+ k[0].substring(0,500));  */
     }
 }

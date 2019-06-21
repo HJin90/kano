@@ -2,8 +2,12 @@ package com.mynote.kano;
 
 
 import com.apollographql.apollo.ApolloClient;
+import com.apollographql.apollo.CustomTypeAdapter;
+import com.mynote.kano.type.CustomType;
 
 import java.io.IOException;
+
+import javax.annotation.Nonnull;
 
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
@@ -17,6 +21,7 @@ public class GitConnectApplication {
 
 
     private static final String BASE_URL = "https://api.github.com/graphql";
+    private static String authHeader = "c7a2b0ad63b8b705abf7b53cc4648bfd5acf0818";
     private static ApolloClient apolloClient;
     private static OkHttpClient okHttpClient;
 

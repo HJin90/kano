@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 public class RepositoryList extends AppCompatActivity {
 
-    private ArrayList<Repository> data = new ArrayList<>();
+    private ArrayList<ItemName> data = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,8 +20,8 @@ public class RepositoryList extends AppCompatActivity {
 
         ListView listView=(ListView)findViewById(R.id.repository_listView);
 
-        Repository r1 = new Repository("Project1");
-        Repository r2 = new Repository("Project2");
+        ItemName r1 = new ItemName("Project1");
+        ItemName r2 = new ItemName("Project2");
 
         data.add(r1);
         data.add(r2);

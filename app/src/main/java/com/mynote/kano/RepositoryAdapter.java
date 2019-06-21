@@ -11,10 +11,10 @@ import java.util.ArrayList;
 
 public class RepositoryAdapter extends BaseAdapter {
     private LayoutInflater inflater;
-    private ArrayList<Repository> data;
+    private ArrayList<ItemName> data;
     private int layout;
 
-    public RepositoryAdapter(Context context, int layout, ArrayList<Repository> data){
+    public RepositoryAdapter(Context context, int layout, ArrayList<ItemName> data){
         this.inflater=(LayoutInflater)context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
         this.layout=layout;
         this.data=data;
@@ -40,10 +40,10 @@ public class RepositoryAdapter extends BaseAdapter {
         if(convertView == null){
             convertView = inflater.inflate(layout,parent, false);
         }
-        Repository repository = data.get(position);
+        ItemName itemName = data.get(position);
 
         TextView name = (TextView)convertView.findViewById(R.id.name);
-        name.setText(repository.getName());
+        name.setText(itemName.getName());
         return convertView;
     }
 }

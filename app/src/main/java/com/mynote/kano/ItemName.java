@@ -1,10 +1,10 @@
 package com.mynote.kano;
 
-public class Repository {
+public class ItemName {
 
     private String name;
 
-    public Repository(String name) {
+    public ItemName(String name) {
         this.name = name;
     }
 

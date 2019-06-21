@@ -32,8 +32,8 @@
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
             android:layout_toEndOf="@id/btn_signin"
-            android:text="Sign Out"
-            android:layout_toRightOf="@id/btn_signin" />
+            android:layout_toRightOf="@id/btn_signin"
+            android:text="Sign Out" />
     </LinearLayout>
 
     <RelativeLayout

@@ -75,6 +75,55 @@
                 android:layout_margin="8dp"
                 android:text=""
                 tools:text="e-mail" />
+
         </LinearLayout>
     </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/linear"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_below="@+id/button_layout"
+        android:layout_marginTop="-8dp"
+        android:orientation="vertical">
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/linear"
+        android:orientation="vertical"
+        android:layout_margin="8dp">
+
+        <Button
+            android:id="@+id/diary_button"
+            android:layout_width="match_parent"
+            android:layout_height="170dp"
+            android:layout_weight="1"
+            android:background="@drawable/buttonshape"
+            android:shadowColor="#C9C9C9"
+            android:shadowDx="0"
+            android:shadowDy="0"
+            android:shadowRadius="5"
+            android:text="diary"
+            android:textColor="#FFFFFF"
+            android:textSize="50dp" />
+
+        <Button
+            android:id="@+id/memo_button"
+            android:layout_width="match_parent"
+            android:layout_height="170dp"
+            android:layout_weight="1"
+            android:background="@drawable/buttonshape_white"
+            android:shadowColor="#ABABAB"
+            android:shadowDx="0"
+            android:shadowDy="0"
+            android:shadowRadius="5"
+            android:text="memo"
+            android:textSize="50dp" />
+
+    </LinearLayout>
+
+
 </RelativeLayout>

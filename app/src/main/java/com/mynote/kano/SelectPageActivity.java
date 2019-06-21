@@ -2,6 +2,7 @@ package com.mynote.kano;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+/*
 
 public class SelectPageActivity extends AppCompatActivity {
 
@@ -11,3 +12,4 @@ public class SelectPageActivity extends AppCompatActivity {
         setContentView(R.layout.selectpage);
     }
 }
+*/

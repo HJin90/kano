@@ -33,7 +33,6 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".SelectPageActivity"></activity>
         <!--<activity android:name=".loginPageActivity" />-->
         <activity android:name=".MainActivity">
             <intent-filter>

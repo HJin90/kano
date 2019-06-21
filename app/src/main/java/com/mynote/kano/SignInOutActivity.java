@@ -42,6 +42,10 @@ public class SignInOutActivity extends AppCompatActivity {
     private Button signInButton;
     private Button signOutButton;
 
+    private Button diaryButton;
+    private Button memoButton;
+
+
     private TextView nameTV;
     private TextView emailTV;
     private ImageView profileIV;
@@ -51,10 +55,16 @@ public class SignInOutActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
 
+    private String userId;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.github_loginpage);
+
+        //SelectButton
+        diaryButton = (Button) findViewById(R.id.diary_button);
+        memoButton = (Button) findViewById(R.id.memo_button);
 
         // Progress Bar
         progressBar = (ProgressBar) findViewById(R.id.progress_bar);
@@ -65,6 +75,32 @@ public class SignInOutActivity extends AppCompatActivity {
 
         // Image View
         profileIV = (ImageView) findViewById(R.id.iv_profile);
+
+
+        //diary Button
+        diaryButton.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+                //이동을 원하는 activity 입력
+/*              Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                intent.putExtra("userId", userId);
+                startActivity(intent);*/
+            }
+        });
+
+        //memo Button
+        memoButton.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+                //이동을 원하는 activity 입력
+/*              Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                intent.putExtra("userId", userId);
+                startActivity(intent);*/
+            }
+        });
+
 
         // Sign In Button
         signInButton = (Button) findViewById(R.id.btn_signin);
@@ -79,7 +115,7 @@ public class SignInOutActivity extends AppCompatActivity {
             }
         });
 
-        // Sign In Button
+        // Sign Out Button
         signOutButton = (Button) findViewById(R.id.btn_signout);
         signOutButton.setOnClickListener(new View.OnClickListener() {
 
@@ -108,8 +144,14 @@ public class SignInOutActivity extends AppCompatActivity {
 
                     Log.d("SignInOutActivity", "User is signed in");
 
+                    userId = user.getProviderId();
+
                     signInButton.setVisibility(View.GONE);
                     signOutButton.setVisibility(View.VISIBLE);
+
+                    memoButton.setVisibility(View.VISIBLE);
+                    diaryButton.setVisibility(View.VISIBLE);
+
 
                     nameTV.setText(user.getDisplayName());
                     emailTV.setText(user.getEmail());
@@ -125,6 +167,8 @@ public class SignInOutActivity extends AppCompatActivity {
 
                     signInButton.setVisibility(View.VISIBLE);
                     signOutButton.setVisibility(View.GONE);
+                    memoButton.setVisibility(View.GONE);
+                    diaryButton.setVisibility(View.GONE);
 
                     nameTV.setText("");
                     emailTV.setText("");

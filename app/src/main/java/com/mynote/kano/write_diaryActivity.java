@@ -8,7 +8,6 @@ import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.view.View;
 
-import com.google.android.gms.common.util.JsonUtils;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -66,12 +65,9 @@ public class write_diaryActivity extends AppCompatActivity {
 
             User user = new User(userId, diaryDate, dContent);
 
-            /*//Using Json_한번에 추가하는 방법
-            myRef.child("Users").child(userId).setValue(userJson);
-*/
-            //Using Path
+            myRef.child("Users").child(userId).setValue(userId);
             myRef.child("Users").child(userId).child("diaryDate").push().setValue(diaryDate);
-            myRef.child("Users").child(userId).child("diaryDate").child("diaryContent").setValue(dContent);
+            myRef.child("Users").child(userId).child("diaryDate").child("diaryContent").push().setValue(dContent);
 
             Intent intent2 = new Intent(this, calendarActivity.class);
             startActivity(intent2);

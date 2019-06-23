@@ -17,21 +17,4 @@ public class User {
         this.diaryDate=diaryDate;
         this.dContent=dContent;
     }
-
-    public String getUserId() {
-        return userId;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "userId='" + userId + '\'' +
-                ", diaryDate='" + diaryDate + '\'' +
-                ", dContent='" + dContent + '\'' +
-                '}';
-    }
 }

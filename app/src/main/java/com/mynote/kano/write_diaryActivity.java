@@ -7,6 +7,7 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 
 import com.google.firebase.database.DataSnapshot;
@@ -40,14 +41,17 @@ public class write_diaryActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         diaryDate = intent.getExtras().getString("diaryDate");
-        userId = intent.getExtras().getString("userId");
+        /*userId = intent.getExtras().getString("userId");
+        */
+
+        userId ="jihye2";
 
         if(intent!= null) {
             TextView tx1 =findViewById(R.id.dateView);
             tx1.setText(diaryDate);
         }
-
-        getUser();
+        saveDiary();
+/*        getUser();*/
 
 
 /*        ValueEventListener userListner = new ValueEventListener() {
@@ -88,6 +92,7 @@ public class write_diaryActivity extends AppCompatActivity {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         User user = dataSnapshot.getValue(User.class);
+                        Log.v("user",user.toString());
                         if(user.getUserId()==userId){
                             User thisUser =user;
                             if (thisUser.getDiaryDate()==diaryDate){
@@ -131,7 +136,9 @@ public class write_diaryActivity extends AppCompatActivity {
 
             myRef.child("Users").child(userId).setValue(userId);
             /*           myRef.child("Users").child(userId).push().setValue(diaryDate);*/
-            myRef.child(userId).child(diaryDate).setValue(dContent);
+            myRef.child(userId).child("diaryDate").setValue(diaryDate);
+            myRef.child(userId).child("diaryDate").child(diaryDate).setValue(dContent);
+            myRef.child(userId).child("diaryDate").child(diaryDate).setValue(diaryDate);
 
             Intent intent2 = new Intent(this, calendarActivity.class);
             startActivity(intent2);

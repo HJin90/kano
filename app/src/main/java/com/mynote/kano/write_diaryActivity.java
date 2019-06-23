@@ -54,7 +54,7 @@ public class write_diaryActivity extends AppCompatActivity {
         diaryDate = intent.getExtras().getString("diaryDate");
        //userId 바꿔주기
      /*   userId = intent.getExtras().getString("userId");*/
-        userId = "jihye";
+        userId = "jihye2";
         diaryContent = (EditText)findViewById(R.id.diaryContent);
         dContent = diaryContent.getText().toString();
 
@@ -66,8 +66,8 @@ public class write_diaryActivity extends AppCompatActivity {
             User user = new User(userId, diaryDate, dContent);
 
             myRef.child("Users").child(userId).setValue(userId);
-            myRef.child("Users").child(userId).child("diaryDate").push().setValue(diaryDate);
-            myRef.child("Users").child(userId).child("diaryDate").child("diaryContent").push().setValue(dContent);
+/*           myRef.child("Users").child(userId).push().setValue(diaryDate);*/
+            myRef.child(userId).child(diaryDate).push().setValue(dContent);
 
             Intent intent2 = new Intent(this, calendarActivity.class);
             startActivity(intent2);

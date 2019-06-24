@@ -20,7 +20,7 @@ public class Repository_Activity extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_repository);
+        setContentView(R.layout.activity_repository_list);
         GitConnectApplication gitConectionApplication = new GitConnectApplication();
 
         Toolbar toolbar = findViewById(R.id.toolbar);

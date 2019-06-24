@@ -5,18 +5,18 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.IgnoreExtraProperties;
 
 @IgnoreExtraProperties
-public class User {
+public class Diary {
     public String userId;
     public String diaryDate;
     public String dContent;
 
-    public User(){
+    public Diary(){
         // Default constructor required for calls to DataSnapshot.getValue(User.class)
 /*        FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference mDatebase = database.getReference();*/
     }
 
-    public User(String userId, String diaryDate, String dContent){
+    public Diary(String userId, String diaryDate, String dContent){
         this.userId=userId;
         this.diaryDate=diaryDate;
         this.dContent=dContent;
@@ -48,7 +48,7 @@ public class User {
 
     @Override
     public String toString() {
-        return "User{" +
+        return "Diary{" +
                 "userId='" + userId + '\'' +
                 ", diaryDate='" + diaryDate + '\'' +
                 ", dContent='" + dContent + '\'' +

@@ -30,7 +30,7 @@ public class write_diaryActivity extends AppCompatActivity {
     private String userId;
     // Write a message to the database
     FirebaseDatabase database = FirebaseDatabase.getInstance();
-    DatabaseReference myRef = database.getReference("User");
+    DatabaseReference myRef = database.getReference("Diary");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,9 +50,8 @@ public class write_diaryActivity extends AppCompatActivity {
             TextView tx1 =findViewById(R.id.dateView);
             tx1.setText(diaryDate);
         }
+        getDiary();
         saveDiary();
-/*        getUser();*/
-
 
 /*        ValueEventListener userListner = new ValueEventListener() {
             @Override
@@ -86,21 +85,21 @@ public class write_diaryActivity extends AppCompatActivity {
             }
         });
     }
-    public void getUser(){
-        myRef.child("User").child(userId).addListenerForSingleValueEvent(
+    public void getDiary(){
+        myRef.child("Diary").addListenerForSingleValueEvent(
                 new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                        User user = dataSnapshot.getValue(User.class);
-                        Log.v("user",user.toString());
-                        if(user.getUserId()==userId){
-                            User thisUser =user;
-                            if (thisUser.getDiaryDate()==diaryDate){
-                                String wContent = user.getdContent();
+                        Diary diary = dataSnapshot.getValue(Diary.class);
+                        Log.v("diary",diary.toString());
+                        if(diary.getUserId()==userId){
+                            Diary thisDiary =diary;
+                            if (thisDiary.getDiaryDate()==diaryDate){
+                                String wContent = diary.getdContent();
                                 TextView tx2 = findViewById(R.id.diaryContent);
                                 tx2.setText(wContent);
                                 if (wContent==null){
-                                    writeDiary();
+                                    saveDiary();
                                 }
                             }
 
@@ -118,27 +117,33 @@ public class write_diaryActivity extends AppCompatActivity {
     private void saveDiary(){
         Intent intent = getIntent();
         diaryDate = intent.getExtras().getString("diaryDate");
+
        //userId 바꿔주기
      /*   userId = intent.getExtras().getString("userId");*/
         userId = "jihye2";
         diaryContent = (EditText)findViewById(R.id.diaryContent);
         dContent = diaryContent.getText().toString();
-        writeDiary();
+        Diary diary = new Diary(userId, diaryDate, dContent);
 
+        myRef.child("Diary").push().setValue(diary);
+
+        if (TextUtils.isEmpty(dContent)) {
+            Toast.makeText(this,"내용입력 ㄱㄱ",Toast.LENGTH_LONG).show();
+        }else{
+            Intent intent2 = new Intent(this, calendarActivity.class);
+            startActivity(intent2);
+        }
     }
-    public void writeDiary(){
+/*    public void writeDiary(){
 
-        if (!TextUtils.isEmpty(dContent)){
+            if (!TextUtils.isEmpty(dContent)){
+                Diary diary = new Diary(userId, diaryDate, dContent);
 
-
-
-            User user = new User(userId, diaryDate, dContent);
-
-            myRef.child("Users").child(userId).setValue(userId);
-            /*           myRef.child("Users").child(userId).push().setValue(diaryDate);*/
-            myRef.child(userId).child("diaryDate").setValue(diaryDate);
+            myRef.child("Diary").push().setValue(diary);
+            *//*           myRef.child("Users").child(userId).push().setValue(diaryDate);*//*
+          *//*  myRef.child(userId).child("diaryDate").setValue(diaryDate);
             myRef.child(userId).child("diaryDate").child(diaryDate).setValue(dContent);
-            myRef.child(userId).child("diaryDate").child(diaryDate).setValue(diaryDate);
+            myRef.child(userId).child("diaryDate").child(diaryDate).setValue(diaryDate);*//*
 
             Intent intent2 = new Intent(this, calendarActivity.class);
             startActivity(intent2);
@@ -146,7 +151,7 @@ public class write_diaryActivity extends AppCompatActivity {
         }else{
             Toast.makeText(this,"내용입력 ㄱㄱ",Toast.LENGTH_LONG).show();
         }
-    }
+    }*/
 
 
 }

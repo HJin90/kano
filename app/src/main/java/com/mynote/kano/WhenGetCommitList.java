@@ -12,17 +12,17 @@ import com.apollographql.apollo.exception.ApolloException;
 
 import javax.annotation.Nonnull;
 
-public class MainActivity extends AppCompatActivity {
+public class WhenGetCommitList extends AppCompatActivity {
 
     public String dataString;
 
-    @Override
+/*    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         //데이터를 가져오는 방법
-        NewThread newThread = new NewThread();
+        WhenGetCommitListextends.NewThread newThread = new WhenGetCommitListextends.NewThread();
         newThread.setDaemon(true);
         newThread.run("MDQ6VXNlcjQ2MjcxNzkz");
 
@@ -47,17 +47,19 @@ public class MainActivity extends AppCompatActivity {
             GitConnectApplication gitConnectApplication = new GitConnectApplication();
             ApolloClient apolloClient = gitConnectApplication.getApolloClient();
 
-            /*
+            *//*
             스레드 사용하는 방법!
-             */
+             *//*
 
-            GetRepositoryQuery getRepositoryQuery
-                    = GetRepositoryQuery.builder()
-                    .loginId(userId).build();
+            GetCommitQuery getCommitQuery
+                    = GetCommitQuery.builder()
+                    .owner_name("jeongjiyoun")
+                    .repository_name("CSMS").build();
+
             //loginId를 여기에 넣으시면 됩니다.
-            apolloClient.query(getRepositoryQuery).enqueue(new ApolloCall.Callback<GetRepositoryQuery.Data>() {
+            apolloClient.query(getCommitQuery).enqueue(new ApolloCall.Callback<GetCommitQuery.Data>() {
                 @Override
-                public void onResponse(@Nonnull Response<GetRepositoryQuery.Data> response) {
+                public void onResponse(@Nonnull Response<GetCommitQuery.Data> response) {
                     //데이터를 가져오는 식
                     String k = response.data().toString();
                     dataString = k;
@@ -70,8 +72,5 @@ public class MainActivity extends AppCompatActivity {
                 }
             });
         }
-    }
-
-
-
+    }*/
 }

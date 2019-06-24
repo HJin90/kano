@@ -1,4 +1,4 @@
-query GetDirectory ($owner_name:String!, $repository_name:String!, $url:String!) {
+query GetDirectory($owner_name: String!, $repository_name: String!, $url: String!) {
   repository(owner: $owner_name, name: $repository_name) {
     folder: object(expression: $url) {
       ... on Tree {
@@ -6,11 +6,6 @@ query GetDirectory ($owner_name:String!, $repository_name:String!, $url:String!)
           oid
           type
           name
-          object {
-            ... on Blob {
-              text
-            }
-          }
         }
       }
     }

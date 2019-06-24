@@ -43,7 +43,5 @@ dependencies {
     implementation "com.apollographql.apollo:apollo-android-support:0.4.2"
     implementation "com.apollographql.apollo:apollo-rx2-support:0.4.2"
 
-    implementation 'com.android.support:multidex:1.0.0'
-
     testCompileOnly 'org.jetbrains:annotations:13.0'
 }

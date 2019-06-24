@@ -3,11 +3,10 @@ query GetContributors ($repository_name:String!, $owner_name:String!){
     collaborators(last: 20) {
       edges {
         node {
-          bio
+          login
           name
           id
           avatarUrl
-          url
         }
       }
     }

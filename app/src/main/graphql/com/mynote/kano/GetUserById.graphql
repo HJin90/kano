@@ -1,9 +1,9 @@
-query GetUserById ($loginId:ID!) {
-  node(id:$loginId) {
-   ... on User {
-      name
-      login
-       url
+query GetUserById ($name: String!) {
+    user(login:$name) {
+        name
+        id
+        login
+        url
     }
-  }
 }
+

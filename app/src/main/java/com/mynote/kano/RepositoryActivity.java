@@ -12,14 +12,14 @@ import com.apollographql.apollo.exception.ApolloException;
 
 import javax.annotation.Nonnull;
 
-public class MainActivity extends AppCompatActivity {
+public class RepositoryActivity extends AppCompatActivity {
 
     public String dataString;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_repository);
 
         //데이터를 가져오는 방법
         NewThread newThread = new NewThread();

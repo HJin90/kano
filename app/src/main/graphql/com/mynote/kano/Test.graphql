@@ -1,0 +1,11 @@
+query Test{
+    viewer {
+        login
+        id
+        url
+        avatarUrl
+        bio
+        databaseId
+
+    }
+}

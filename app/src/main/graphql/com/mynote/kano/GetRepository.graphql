@@ -1,0 +1,14 @@
+query GetRepository ($loginId: ID!) {
+    node(id: $loginId) {
+        ... on User {
+            repositories(first: 30) {
+                nodes{
+                    id
+                    name
+                    description
+                    url
+                }
+            }
+        }
+    }
+}

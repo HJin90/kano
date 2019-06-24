@@ -1,3 +1,23 @@
-<resources>
+﻿<resources>
     <string name="app_name">Kano</string>
+
+    <string name="gitHub_URL">https://api.github.com/</string>
+
+    <string name="nav_header_src">https://avatars0.githubusercontent.com/u/46271793?v=4</string>
+    <string name="title_activity_repository_">Repository_Activity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">여기에 유저명(login)이 들어감</string>
+    <string name="nav_header_subtitle">bio가 들어감</string>
+    <string name="nav_header_desc">Avatar Picture</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="repository_name">지금의 폴더</string>
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <string name="menu_tools">Tools</string>
+    <string name="menu_share">Share</string>
+    <string name="menu_send">Send</string>
+
 </resources>

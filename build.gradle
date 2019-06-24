@@ -5,6 +5,8 @@ buildscript {
         maven { url "https://plugins.gradle.org/m2/" }
         maven { url "https://oss.sonatype.org/content/repositories/snapshots" }
         google()
+
+        C:\Users\kita\Documents\GitHub\kano\.gradle\4.10.1
     }
 
 

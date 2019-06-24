@@ -13,8 +13,7 @@
 
         <activity android:name=".RepositoryFolder"></activity>
 
-        <activity android:name=".RepositoryList"/>
-
+        <activity android:name=".RepositoryList" />
 
 
         <activity

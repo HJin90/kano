@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
         //데이터를 가져오는 방법
         NewThread newThread = new NewThread();
         newThread.setDaemon(true);
-        newThread.run("MDQ6VXNlcjQ2MjcxNzkz");
+        newThread.run("jeongjiyoun");
 
         synchronized (newThread) {
             try {
@@ -35,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
                 //text 세팅하는 방법 - 예시
                 TextView textView = findViewById(R.id.textView20);
                 textView.setText(dataString);
+                Log.v("결론",dataString);
             }
         }
 
@@ -42,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
 
     //데이터 가져오는 메소드
     class NewThread extends Thread {
-        public void run(String userId) {
+        public void run(String userName) {
 
             GitConnectApplication gitConnectApplication = new GitConnectApplication();
             ApolloClient apolloClient = gitConnectApplication.getApolloClient();
@@ -53,13 +54,15 @@ public class MainActivity extends AppCompatActivity {
 
             GetRepositoryQuery getRepositoryQuery
                     = GetRepositoryQuery.builder()
-                    .loginId(userId).build();
+                    .owner_name(userName)
+                    .build();
             //loginId를 여기에 넣으시면 됩니다.
             apolloClient.query(getRepositoryQuery).enqueue(new ApolloCall.Callback<GetRepositoryQuery.Data>() {
                 @Override
                 public void onResponse(@Nonnull Response<GetRepositoryQuery.Data> response) {
                     //데이터를 가져오는 식
                     String k = response.data().toString();
+                    Log.v("로그",k);
                     dataString = k;
                     return;
                 }

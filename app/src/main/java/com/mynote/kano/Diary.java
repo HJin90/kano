@@ -1,8 +1,10 @@
 package com.mynote.kano;
 
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Exclude;
 import com.google.firebase.database.IgnoreExtraProperties;
+
+import java.util.HashMap;
+import java.util.Map;
 
 @IgnoreExtraProperties
 public class Diary {
@@ -11,15 +13,22 @@ public class Diary {
     public String dContent;
 
     public Diary(){
-        // Default constructor required for calls to DataSnapshot.getValue(User.class)
-/*        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference mDatebase = database.getReference();*/
+
     }
 
     public Diary(String userId, String diaryDate, String dContent){
         this.userId=userId;
         this.diaryDate=diaryDate;
         this.dContent=dContent;
+    }
+
+    @Exclude
+    public Map<String, Object> toMap(){
+        HashMap<String, Object> result = new HashMap<>();
+        result.put("userId",userId);
+        result.put("diaryDate",diaryDate);
+        result.put("dContent",dContent);
+        return result;
     }
 
     public String getdContent() {

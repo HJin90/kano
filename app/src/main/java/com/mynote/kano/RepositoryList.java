@@ -16,7 +16,7 @@ public class RepositoryList extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_repository_list);
+        setContentView(R.layout.activity_repository);
 
         ListView listView=(ListView)findViewById(R.id.repository_listView);
 

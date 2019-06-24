@@ -1,13 +1,8 @@
 package com.mynote.kano;
 
-
 import com.apollographql.apollo.ApolloClient;
-import com.apollographql.apollo.CustomTypeAdapter;
-import com.mynote.kano.type.CustomType;
 
 import java.io.IOException;
-
-import javax.annotation.Nonnull;
 
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
@@ -18,16 +13,16 @@ import okhttp3.Response;
 public class GitConnectApplication {
     /*github graphQL 주소*/
 
-
-
     private static final String BASE_URL = "https://api.github.com/graphql";
-    private static String authHeader = "c7a2b0ad63b8b705abf7b53cc4648bfd5acf0818";
+    //나중에 그냥 fireBase에서 가져오자
+
+    private static String authHeader = "bearer 0b01139a501e99b51e177e1093b1d2b7e6aace78";
     private static ApolloClient apolloClient;
     private static OkHttpClient okHttpClient;
 
 
     //Creating a Client
-    public GitConnectApplication(){
+    public GitConnectApplication() {
 
       /*
       With the installation complete and schema downloaded,
@@ -66,6 +61,8 @@ public class GitConnectApplication {
         }
     }
 
-    public ApolloClient getApolloClient() { return apolloClient; }
+    public ApolloClient getApolloClient() {
+        return apolloClient;
+    }
 
 }

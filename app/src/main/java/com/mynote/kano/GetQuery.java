@@ -22,15 +22,18 @@ public class GetQuery {
 
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
             apolloClient.query(getRepositoryQuery).enqueue(new ApolloCall.Callback<GetRepositoryQuery.Data>() {
-                CompletableFuture<GetRepositoryQuery.Data> future = new CompletableFuture<>();
                 @Override
                 public void onResponse(@Nonnull Response<GetRepositoryQuery.Data> response) {
                     if (response.hasErrors()){
-                        future.completeExceptionally(new ApolloException("errors"));
+                        SaveData saveData = new SaveData();
+                        saveData.setData(response.data());
+                        saveData.setName("error");
                     }
                     String k = response.data().toString();
                     Log.v("태그", k);
-                    future.complete(response.data());
+                    SaveData saveData = new SaveData();
+                    saveData.setData(response.data());
+                    saveData.setName("repository");
                 }
 
                 @Override
@@ -38,6 +41,7 @@ public class GetQuery {
                     Log.e("1", e.getMessage(), e);
                 }
             });
+
         }
     }
 }

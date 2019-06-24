@@ -1,0 +1,24 @@
+query GetCommit ($owner_name: String!, $repository_name: String!, $oid_id:String!) {
+  repository(owner: $owner_name, name: $repository_name) {
+    object(expression:$oid_id) {
+      ... on Commit {
+        history{
+          edges {
+            node {
+              oid
+              changedFiles
+              additions
+              deletions
+              messageHeadline
+              messageBody
+              committedDate
+              committer {
+                name
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -12,11 +12,10 @@
         android:theme="@style/AppTheme">
 
         <activity android:name=".RepositoryFolder"></activity>
-        <activity android:name=".MainActivity" />
-        <activity android:name=".RepositoryList">
 
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+        <activity android:name=".RepositoryList"/>
+
+
 
         <activity
             android:name=".Repository_Activity"

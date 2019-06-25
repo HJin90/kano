@@ -32,8 +32,10 @@ public class write_diaryActivity extends AppCompatActivity {
     private String dContent;
     private String diaryDate;
     private String userId;
-    private String wDiaryKey;//유저 다이어리 목록에 저장되어있는 key
-    private String wContent;//이미 쓴 일기내용
+    private String result;
+
+/*    private String wDiaryKey;//유저 다이어리 목록에 저장되어있는 key
+    private String wContent;//이미 쓴 일기내용*/
 
     // Write a message to the database
     FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -57,17 +59,17 @@ public class write_diaryActivity extends AppCompatActivity {
             TextView tx1 =findViewById(R.id.dateView);
             tx1.setText(diaryDate);
         }
-        String makeChildName = "/uesr-diarys"+userId+diaryDate+"/";
-        Query query = myRef.child(makeChildName).orderByChild("Key");
 
-        
-
+       result =  intent.getExtras().getString("checkDiary");
         Button saveBtn = (Button)findViewById(R.id.saveBtn);
-
-
         saveBtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
+/*                if(result =="false"){ //일기가 없는 경우
+                    writeDiary();
+                }else{//일기가 있는 경우
+                    updateDiary();
+                }*/
                 writeDiary();
             }
         });
@@ -98,7 +100,7 @@ public class write_diaryActivity extends AppCompatActivity {
                     childUpdates.put("/uesr-diarys"+userId+diaryDate+"/", postValues);
                     myRef.updateChildren(childUpdates);
 
-                    /*                   Intent intent3 = new Intent(this, calendarActivity.class);
+                    /* Intent intent3 = new Intent(this, calendarActivity.class);
                     startActivity(intent3);*/
 
                 }
@@ -109,12 +111,10 @@ public class write_diaryActivity extends AppCompatActivity {
 
             }
          };
-        String thisUser = userId;
-        Query sortbyThisuser = FirebaseDatabase.getInstance().getReference().child("diarys").orderByChild(thisUser);
-        sortbyThisuser.addListenerForSingleValueEvent(diaryListener);
     }
 
     public void writeDiary(){
+        Toast.makeText(this,"write",Toast.LENGTH_LONG).show();
         Intent intent = getIntent();
         diaryDate = intent.getExtras().getString("diaryDate");
         //userId 바꿔주기
@@ -132,7 +132,7 @@ public class write_diaryActivity extends AppCompatActivity {
 */
             Map<String, Object> postValues = diary.toMap();
             Map<String, Object> childUpdates = new HashMap<>();
-            childUpdates.put("key",key);
+            postValues.put("key",key);
 
             childUpdates.put("/diarys/"+key, postValues);
             childUpdates.put("/uesr-diarys"+userId+diaryDate+"/", postValues);

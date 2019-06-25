@@ -2,14 +2,15 @@ package com.mynote.kano;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
+
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 
 import java.util.Calendar;
 
@@ -18,6 +19,10 @@ public class calendarActivity extends AppCompatActivity {
 
     DatePicker datePicker;  //  datePicker - 날짜를 선택하는 달력
     String pickedDate;
+
+    // Write a message to the database
+    FirebaseDatabase database = FirebaseDatabase.getInstance();
+    DatabaseReference myRef = database.getReference("Diary");
 
     public static final int REQUEST_CODE_MENU = 101;//diary에서 받는 코드
 
@@ -45,43 +50,40 @@ public class calendarActivity extends AppCompatActivity {
             public void onDateChanged(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
                 monthOfYear=monthOfYear+1;
                 pickedDate = year + "," + monthOfYear+ "," + dayOfMonth;
-                System.out.print(pickedDate);
+
             }
         });
 
         Button button = (Button) findViewById(R.id.goDiaryButton);
 
-        /*        button.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v){
-                Intent intent = new Intent(getApplicationContext(),write_diaryActivity.class);
-                intent.putExtra("diaryDate",pickedDate);
-                startActivity(intent);
-            }
-        });*/
     }
+
+ /*   public String checkDiary(){
+        *//* Intent intent = getIntent();
+          userId = intent.getExtras().getString("userId");*//*
+        String userId = "jihye2";
+        String makeChildName = "/uesr-diarys"+userId+pickedDate+"/";
+        Query query = myRef.child(makeChildName).orderByChild("Key");
+
+        if (query==null){
+            //일기가 있을경우 false
+            Intent intent =new Intent(getApplicationContext(),write_diaryActivity.class);
+*//*
+            intent.putExtra("diaryKey",query);
+*//*
+            return "false";
+        }
+        return "true";
+    }*/
+
     public void goDiary(View v){
         Intent intent = new Intent(getApplicationContext(),write_diaryActivity.class);
         intent.putExtra("diaryDate",pickedDate);
+/*        String result = checkDiary();
+        intent.putExtra("checkDiary", result);*/
         startActivity(intent);
         finish();
     }
 
 
-
-    //writeDiary에서 처리된 결과를 받는 메소드
-    //처리된 결과 코드 (resultCode)가 REQUEST_CODE_MENU랑 같으면 ㄱㄱ
-    //writeDiary에서 일기를 썼으면 위에 점을 찍어줌
-
-/*    @Override
-        protected void onActivityResult(int requestCode, int resultCode, Intent data){
-            if(resultCode==REQUEST_CODE_MENU){
-                switch (requestCode){
-                    case 101:
-                        *//* 캘린더에 점 찍어주는거 따로 하기
-                         * *//*
-                        break;
-                }
-            }
-    }*/
 }

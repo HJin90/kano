@@ -29,7 +29,11 @@ android {
     sourceSets { main { res.srcDirs = ['src/main/res', 'src/main/res/xml'] } }
 }
 apollo {
-    customTypeMapping = ['URI' : "java.lang.String"]
+    customTypeMapping = [
+            'URI' : "java.lang.String",
+            'GitTimestamp' : "java.lang.String",
+            'GitObjectID' : "java.lang.String"
+    ]
 }
 
 dependencies {

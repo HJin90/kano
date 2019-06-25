@@ -31,20 +31,12 @@ public class WhenGetCommitList extends AppCompatActivity {
         WhenGetCommitList.NewThread newThread = new WhenGetCommitList.NewThread();
         newThread.setDaemon(true);
 
-        //6월이라고 가정하면,
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("YYYY-MM-DD'T'HH:mm:ss.SSSZ", Locale.getDefault());
-        Date month_end = new Date();
-        Date month_start = new Date();
+        //5월이라고 가정하면,
 
-        try {
-           month_end = simpleDateFormat.parse("2019-06-30T23:59:59.000+0900");
-            month_end = simpleDateFormat.parse("2019-06-01T00:00:00.000+0900");
+        String month_end = "2019-05-31T23:59:59";
+        String month_start = "2019-05-01T00:00:00";
 
-        }catch (ParseException e){
-            //ignore
-            Log.e("E",e.toString(),e);
-        }
-        newThread.run("CSMS","jeongjiyoun","master",month_end, month_start);
+        newThread.run("master","jeongjiyoun","chieUniversity", month_start,month_end);
 
         synchronized (newThread) {
             try {
@@ -61,7 +53,7 @@ public class WhenGetCommitList extends AppCompatActivity {
 
     //CommitList
     class NewThread extends Thread {
-        public void run(String branch_name,String owner_name, String repository_name, Date month_end, Date month_start) {
+        public void run(String branch_name,String owner_name, String repository_name, String month_start,String month_end) {
 
             GitConnectApplication gitConnectApplication = new GitConnectApplication();
             ApolloClient apolloClient = gitConnectApplication.getApolloClient();
@@ -82,6 +74,7 @@ public class WhenGetCommitList extends AppCompatActivity {
                     //데이터를 가져오는 식
                     String k = response.data().toString();
                     dataString = k;
+                    Log.v("?",k);
                     return;
                 }
 

@@ -11,3 +11,5 @@
 /build
 /captures
 .externalNativeBuild
+app/src/main/java/com/mynote/kano/GitConnectApplication.java
+app/src/main/graphql/com/mynote/kano/.graphqlconfig

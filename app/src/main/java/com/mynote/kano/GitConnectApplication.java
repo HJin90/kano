@@ -16,7 +16,7 @@ public class GitConnectApplication {
     private static final String BASE_URL = "https://api.github.com/graphql";
     //나중에 그냥 fireBase에서 가져오자
 
-    private static String authHeader = "bearer  ";
+    private static String authHeader = "bearer ";
     private static ApolloClient apolloClient;
     private static OkHttpClient okHttpClient;
 

@@ -19,10 +19,11 @@ public class calendarActivity extends AppCompatActivity {
 
     DatePicker datePicker;  //  datePicker - 날짜를 선택하는 달력
     String pickedDate;
+    String userId;
+    String dContent;
 
     // Write a message to the database
     FirebaseDatabase database = FirebaseDatabase.getInstance();
-    DatabaseReference myRef = database.getReference("Diary");
 
     public static final int REQUEST_CODE_MENU = 101;//diary에서 받는 코드
 
@@ -53,6 +54,12 @@ public class calendarActivity extends AppCompatActivity {
 
             }
         });
+        Intent intent = getIntent();
+        userId = intent.getExtras().getString("userId");
+
+        DatabaseReference myRef = database.getReference().child("/uesr-diarys"+userId+pickedDate+"/");
+        DatabaseReference dContentRef = myRef.child("dContent");
+        dContent =String.valueOf(dContentRef);
 
         Button button = (Button) findViewById(R.id.goDiaryButton);
 
@@ -79,8 +86,10 @@ public class calendarActivity extends AppCompatActivity {
     public void goDiary(View v){
         Intent intent = new Intent(getApplicationContext(),write_diaryActivity.class);
         intent.putExtra("diaryDate",pickedDate);
+        intent.putExtra("dContent", dContent);
 /*        String result = checkDiary();
         intent.putExtra("checkDiary", result);*/
+
         startActivity(intent);
         finish();
     }

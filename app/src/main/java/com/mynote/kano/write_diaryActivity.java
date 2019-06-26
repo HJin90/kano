@@ -30,6 +30,7 @@ public class write_diaryActivity extends AppCompatActivity {
 
     private EditText diaryContent;
     private String dContent;
+    private String dContentfromFB;
     private String diaryDate;
     private String userId;
     private String result;
@@ -50,14 +51,17 @@ public class write_diaryActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         diaryDate = intent.getExtras().getString("diaryDate");
-        /*userId = intent.getExtras().getString("userId");
+        dContentfromFB = intent.getExtras().getString("dContent");
+       /*userId = intent.getExtras().getString("userId");
         */
         diaryContent = (EditText)findViewById(R.id.diaryContent);
+
         userId ="jihye2";
 
         if(intent!= null) {
             TextView tx1 =findViewById(R.id.dateView);
             tx1.setText(diaryDate);
+            diaryContent.setText(dContentfromFB);
         }
 
        result =  intent.getExtras().getString("checkDiary");

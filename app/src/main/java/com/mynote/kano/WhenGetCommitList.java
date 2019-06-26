@@ -17,7 +17,7 @@ public class WhenGetCommitList extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_repository);
+        setContentView(R.layout.activity_main);
 
         //데이터를 가져오는 방법
         WhenGetCommitList.NewThread newThread = new WhenGetCommitList.NewThread();

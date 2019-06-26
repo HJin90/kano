@@ -10,7 +10,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         >
-        <activity android:name=".gitSource.WhenGetCommitList">
+
+        <activity android:name=".gitSource.WhenGetCommitList"/>
 
         <activity
             android:name=".SignInOutActivity"
@@ -38,9 +39,10 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".gitSource.WhenGetDirectory"></activity>
+        <activity android:name=".gitSource.WhenGetDirectory"/>
 
-        <activity android:name=".CListActivity"></activity>
+        <activity android:name=".CListActivity"/>
+
         <activity android:name=".CommitActivity" />
 
         <activity
@@ -49,9 +51,6 @@
         <activity
             android:name=".write_diaryActivity"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".MainActivity">
 
-        </activity>
     </application>
-
 </manifest>

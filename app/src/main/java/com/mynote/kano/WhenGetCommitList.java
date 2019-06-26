@@ -10,14 +10,6 @@ import com.apollographql.apollo.ApolloClient;
 import com.apollographql.apollo.api.Response;
 import com.apollographql.apollo.exception.ApolloException;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.Locale;
-
-import javax.annotation.Nonnull;
-
 public class WhenGetCommitList extends AppCompatActivity {
 
     public String dataString;
@@ -70,7 +62,7 @@ public class WhenGetCommitList extends AppCompatActivity {
             //loginId를 여기에 넣으시면 됩니다.
             apolloClient.query(getCommitQuery).enqueue(new ApolloCall.Callback<GetCommitQuery.Data>() {
                 @Override
-                public void onResponse(@Nonnull Response<GetCommitQuery.Data> response) {
+                public void onResponse(Response<GetCommitQuery.Data> response) {
                     //데이터를 가져오는 식
                     String k = response.data().toString();
                     dataString = k;
@@ -79,7 +71,7 @@ public class WhenGetCommitList extends AppCompatActivity {
                 }
 
                 @Override
-                public void onFailure(@Nonnull ApolloException e) {
+                public void onFailure(ApolloException e) {
                     Log.e("1", e.getMessage(), e);
                 }
             });

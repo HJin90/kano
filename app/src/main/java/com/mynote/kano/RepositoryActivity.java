@@ -10,8 +10,6 @@ import com.apollographql.apollo.ApolloClient;
 import com.apollographql.apollo.api.Response;
 import com.apollographql.apollo.exception.ApolloException;
 
-import javax.annotation.Nonnull;
-
 public class RepositoryActivity extends AppCompatActivity {
 
     public String dataString;
@@ -59,7 +57,7 @@ public class RepositoryActivity extends AppCompatActivity {
             //loginId를 여기에 넣으시면 됩니다.
             apolloClient.query(getRepositoryQuery).enqueue(new ApolloCall.Callback<GetRepositoryQuery.Data>() {
                 @Override
-                public void onResponse(@Nonnull Response<GetRepositoryQuery.Data> response) {
+                public void onResponse(Response<GetRepositoryQuery.Data> response) {
                     //데이터를 가져오는 식
                     String k = response.data().toString();
                     Log.v("로그",k);
@@ -68,7 +66,7 @@ public class RepositoryActivity extends AppCompatActivity {
                 }
 
                 @Override
-                public void onFailure(@Nonnull ApolloException e) {
+                public void onFailure(ApolloException e) {
                     Log.e("1", e.getMessage(), e);
                 }
             });

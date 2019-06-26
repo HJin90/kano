@@ -11,9 +11,9 @@ android {
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
-        vectorDrawables.useSupportLibrary = true
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -26,6 +26,7 @@ android {
         textOutput 'stdout'
         ignore 'InvalidPackage', 'GoogleAppIndexingWarning', 'AllowBackup'
     }
+
     sourceSets { main { res.srcDirs = ['src/main/res', 'src/main/res/xml'] } }
 }
 apollo {
@@ -41,11 +42,9 @@ dependencies {
     implementation 'com.android.support.constraint:constraint-layout:1.1.3'
     implementation 'com.android.support:support-v4:28.0.0'
     implementation 'com.android.support:design:28.0.0'
+    implementation 'com.squareup.okhttp3:okhttp:3.14.1'
 
-    implementation 'org.jetbrains:annotations:13.0'
-    implementation "com.apollographql.apollo:apollo-runtime:0.4.2"
-    implementation "com.apollographql.apollo:apollo-android-support:0.4.2"
-    implementation "com.apollographql.apollo:apollo-rx2-support:0.4.2"
-
-    testCompileOnly 'org.jetbrains:annotations:13.0'
+    implementation "com.apollographql.apollo:apollo-runtime:1.0.0"
+    implementation "com.apollographql.apollo:apollo-android-support:1.0.0"
+    implementation "com.apollographql.apollo:apollo-rx2-support:1.0.0"
 }

@@ -1,4 +1,4 @@
-package com.mynote.kano;
+package com.mynote.kano.firebase;
 
 import android.support.annotation.IntDef;
 

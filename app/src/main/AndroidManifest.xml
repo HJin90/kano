@@ -14,12 +14,12 @@
         <activity android:name=".gitSource.WhenGetCommitList"/>
 
         <activity
-            android:name=".SignInOutActivity"
+            android:name=".firebase.login.SignInOutActivity"
             android:launchMode="singleTask">
         </activity>
 
         <activity
-            android:name=".RedirectedActivity"
+            android:name=".firebase.login.RedirectedActivity"
             android:theme="@android:style/Theme.Translucent.NoTitleBar">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
@@ -31,7 +31,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".MainActivity">
+        <activity android:name=".firebase.login.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -46,10 +46,10 @@
         <activity android:name=".CommitActivity" />
 
         <activity
-            android:name=".calendarActivity"
+            android:name=".firebase.calendar.calendarActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".write_diaryActivity"
+            android:name=".firebase.calendar.write_diaryActivity"
             android:theme="@style/AppTheme.NoActionBar" />
 
     </application>

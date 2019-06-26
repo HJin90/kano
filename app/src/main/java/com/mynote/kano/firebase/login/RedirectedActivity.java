@@ -1,9 +1,11 @@
-package com.mynote.kano;
+package com.mynote.kano.firebase.login;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+
+import com.mynote.kano.R;
 
 public class RedirectedActivity extends Activity {
 

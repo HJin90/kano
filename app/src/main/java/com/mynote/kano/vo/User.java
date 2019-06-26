@@ -1,4 +1,4 @@
-package com.mynote.kano;
+package com.mynote.kano.vo;
 
 public class User {
     public String userId;

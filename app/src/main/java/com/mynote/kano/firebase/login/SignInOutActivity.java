@@ -1,4 +1,4 @@
-package com.mynote.kano;
+package com.mynote.kano.firebase.login;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -22,6 +22,10 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GithubAuthProvider;
+import com.mynote.kano.CommitActivity;
+import com.mynote.kano.R;
+import com.mynote.kano.firebase.calendar.calendarActivity;
+import com.mynote.kano.firebase.StatusCode;
 
 import java.io.IOException;
 import java.math.BigInteger;
@@ -56,6 +60,8 @@ public class SignInOutActivity extends AppCompatActivity {
     private FirebaseAuth.AuthStateListener mAuthListener;
 
     private String userId;
+    private String owner_name;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,41 +82,34 @@ public class SignInOutActivity extends AppCompatActivity {
         // Image View
         profileIV = (ImageView) findViewById(R.id.iv_profile);
 
-
         //diary Button
         diaryButton.setOnClickListener(new View.OnClickListener(){
-
             @Override
             public void onClick(View v) {
-                //이동을 원하는 activity 입력
-/*              Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                intent.putExtra("userId", userId);
-                startActivity(intent);*/
+                Intent intent = new Intent(getApplicationContext(), calendarActivity.class);
+                intent.putExtra("owner_name",owner_name);
+                startActivity(intent);
+                finish();
             }
         });
 
         //memo Button
         memoButton.setOnClickListener(new View.OnClickListener(){
-
             @Override
             public void onClick(View v) {
-                //이동을 원하는 activity 입력
-/*              Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                intent.putExtra("userId", userId);
-                startActivity(intent);*/
+                Intent intent = new Intent(getApplicationContext(), CommitActivity.class);
+                intent.putExtra("owner_name",owner_name);
+                startActivity(intent);
+                finish();
             }
         });
-
 
         // Sign In Button
         signInButton = (Button) findViewById(R.id.btn_signin);
         signInButton.setOnClickListener(new View.OnClickListener() {
-
             @Override
             public void onClick(View v) {
-
                 progressBar.setVisibility(View.VISIBLE);
-
                 signIn();
             }
         });
@@ -118,12 +117,9 @@ public class SignInOutActivity extends AppCompatActivity {
         // Sign Out Button
         signOutButton = (Button) findViewById(R.id.btn_signout);
         signOutButton.setOnClickListener(new View.OnClickListener() {
-
             @Override
             public void onClick(View v) {
-
                 progressBar.setVisibility(View.VISIBLE);
-
                 signOut();
             }
         });
@@ -152,9 +148,10 @@ public class SignInOutActivity extends AppCompatActivity {
                     memoButton.setVisibility(View.VISIBLE);
                     diaryButton.setVisibility(View.VISIBLE);
 
-
                     nameTV.setText(user.getDisplayName());
                     emailTV.setText(user.getEmail());
+
+                    owner_name = user.getDisplayName();
 
                     Glide.with(getBaseContext())
                             .load(user.getPhotoUrl()).into(profileIV);

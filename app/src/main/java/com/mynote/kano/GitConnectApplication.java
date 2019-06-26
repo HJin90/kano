@@ -33,13 +33,13 @@ public class GitConnectApplication {
        */
 
         /*create an instance of the OkHttpClient*/
-        okHttpClient = new OkHttpClient.Builder().addInterceptor(
-/*
-                  This android project Java version does not supports Lambda Expressions
-                  (it needs at least java 7) : lambda expressions are not supported at language level '7'
-                  so you have to use @override annotation
-*/
-                new Interceptor() {
+
+        okHttpClient = new OkHttpClient.Builder().addInterceptor(new Interceptor() {
+            /*
+                              This android project Java version does not supports Lambda Expressions
+                              (it needs at least java 7) : lambda expressions are not supported at language level '7'
+                              so you have to use @override annotation
+            */
                     @Override
                     public Response intercept(Chain chain) throws IOException {
                         Request original = chain.request();

@@ -55,11 +55,11 @@ public class calendarActivity extends AppCompatActivity {
             }
         });
         Intent intent = getIntent();
-        userId = intent.getExtras().getString("userId");
-
+        //userId = intent.getExtras().getString("userId");
+        /*userId="jihye2";
         DatabaseReference myRef = database.getReference().child("/uesr-diarys"+userId+pickedDate+"/");
         DatabaseReference dContentRef = myRef.child("dContent");
-        dContent =String.valueOf(dContentRef);
+        dContent =String.valueOf(dContentRef);*/
 
         Button button = (Button) findViewById(R.id.goDiaryButton);
 
@@ -86,7 +86,7 @@ public class calendarActivity extends AppCompatActivity {
     public void goDiary(View v){
         Intent intent = new Intent(getApplicationContext(),write_diaryActivity.class);
         intent.putExtra("diaryDate",pickedDate);
-        intent.putExtra("dContent", dContent);
+       // intent.putExtra("dContent", dContent);
 /*        String result = checkDiary();
         intent.putExtra("checkDiary", result);*/
 

@@ -51,12 +51,35 @@ public class write_diaryActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         diaryDate = intent.getExtras().getString("diaryDate");
-        dContentfromFB = intent.getExtras().getString("dContent");
-       /*userId = intent.getExtras().getString("userId");
+      /*  dContentfromFB = intent.getExtras().getString("dContent");
+      */ /*userId = intent.getExtras().getString("userId");
         */
+        userId ="jihye2";
+
+       //firebase에서 값 가져오기
+        /*DatabaseReference myRef2 = database.getReference().child("/uesr-diarys"+userId+diaryDate+"/");
+        DatabaseReference dContentRef = myRef2.child("dContent");
+*/
+/*
+        DatabaseReference diaryyRef = database.getReference().child("/uesr-diarys"+userId+diaryDate+"/");
+*/
+/*
+        dContentfromFB =String.valueOf(dContentRef);
+*/
+        myRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                Diary dFromFB = dataSnapshot.child("/uesr-diarys"+userId+diaryDate+"/").getValue(Diary.class);
+                dContentfromFB= dFromFB.getdContent();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
         diaryContent = (EditText)findViewById(R.id.diaryContent);
 
-        userId ="jihye2";
 
         if(intent!= null) {
             TextView tx1 =findViewById(R.id.dateView);

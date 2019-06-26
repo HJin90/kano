@@ -1,4 +1,4 @@
-package com.mynote.kano;
+package com.mynote.kano.gitSource;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -9,8 +9,11 @@ import com.apollographql.apollo.ApolloCall;
 import com.apollographql.apollo.ApolloClient;
 import com.apollographql.apollo.api.Response;
 import com.apollographql.apollo.exception.ApolloException;
+import com.mynote.kano.GetBranchQuery;
+import com.mynote.kano.R;
+import com.mynote.kano.gitSource.gitConnection.GitConnectApplication;
 
-public class WhenGetCommitList extends AppCompatActivity {
+public class WhenGetBranch extends AppCompatActivity {
 
     public String dataString;
 
@@ -20,15 +23,10 @@ public class WhenGetCommitList extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         //데이터를 가져오는 방법
-        WhenGetCommitList.NewThread newThread = new WhenGetCommitList.NewThread();
+        WhenGetBranch.NewThread newThread = new WhenGetBranch.NewThread();
         newThread.setDaemon(true);
 
-        //5월이라고 가정하면,
-
-        String month_end = "2019-05-31T23:59:59";
-        String month_start = "2019-05-01T00:00:00";
-
-        newThread.run("master","jeongjiyoun","chieUniversity", month_start,month_end);
+        newThread.run("jeongjiyoun","chieUniversity");
 
         synchronized (newThread) {
             try {
@@ -43,26 +41,24 @@ public class WhenGetCommitList extends AppCompatActivity {
         }
     }
 
-    //CommitList
+    //Dirctory
     class NewThread extends Thread {
-        public void run(String branch_name,String owner_name, String repository_name, String month_start,String month_end) {
+        public void run(String owner_name, String repository_name) {
 
             GitConnectApplication gitConnectApplication = new GitConnectApplication();
             ApolloClient apolloClient = gitConnectApplication.getApolloClient();
 
-            GetCommitQuery getCommitQuery
-                    = GetCommitQuery.builder()
-                    .branch_name(branch_name)
-                    .repository_name(repository_name)
+            GetBranchQuery getQuery
+                    = GetBranchQuery.builder()
                     .owner_name(owner_name)
-                    .month_end(month_end)
-                    .month_start(month_start)
+                    .repository_name(repository_name)
                     .build();
 
+
             //loginId를 여기에 넣으시면 됩니다.
-            apolloClient.query(getCommitQuery).enqueue(new ApolloCall.Callback<GetCommitQuery.Data>() {
+            apolloClient.query(getQuery).enqueue(new ApolloCall.Callback<GetBranchQuery.Data>() {
                 @Override
-                public void onResponse(Response<GetCommitQuery.Data> response) {
+                public void onResponse(Response<GetBranchQuery.Data> response) {
                     //데이터를 가져오는 식
                     String k = response.data().toString();
                     dataString = k;

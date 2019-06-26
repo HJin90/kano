@@ -12,21 +12,17 @@
 
         >
 
-        <activity android:name=".WhenGetCommitList">
-        </activity>
+        <activity android:name=".gitSource.WhenGetCommitList"></activity>
 
-        <activity
-            android:name=".RepositoryActivity"></activity>
+        <activity android:name=".gitSource.WhenGetDirectory"></activity>
 
         <activity android:name=".CListActivity"></activity>
         <activity android:name=".CommitActivity" />
         <activity
             android:name=".calendarActivity"
-            android:label="@string/title_activity_calendar"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".write_diaryActivity"
-            android:label="@string/title_activity_write_diary"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".MainActivity">
             <intent-filter>

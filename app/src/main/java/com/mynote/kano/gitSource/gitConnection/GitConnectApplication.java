@@ -1,4 +1,4 @@
-package com.mynote.kano;
+package com.mynote.kano.gitSource.gitConnection;
 
 import com.apollographql.apollo.ApolloClient;
 

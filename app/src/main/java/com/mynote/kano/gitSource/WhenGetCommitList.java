@@ -40,7 +40,7 @@ public class WhenGetCommitList extends AppCompatActivity {
                 Log.e("error", e.toString(), e);
             } finally {
                 //text 세팅하는 방법 - 예시
-                TextView textView = findViewById(R.id.textView2);
+                TextView textView = findViewById(R.id.textView3);
                 textView.setText(dataString);
             }
         }

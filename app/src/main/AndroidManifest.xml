@@ -9,15 +9,21 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
-
         >
 
-        <activity android:name=".gitSource.WhenGetCommitList"></activity>
+        <activity android:name=".gitSource.WhenGetCommitList">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
 
         <activity android:name=".gitSource.WhenGetDirectory"></activity>
 
         <activity android:name=".CListActivity"></activity>
         <activity android:name=".CommitActivity" />
+
         <activity
             android:name=".calendarActivity"
             android:theme="@style/AppTheme.NoActionBar" />
@@ -25,11 +31,7 @@
             android:name=".write_diaryActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
     </application>
 

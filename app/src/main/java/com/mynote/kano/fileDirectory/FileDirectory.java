@@ -26,6 +26,7 @@ public class FileDirectory extends AppCompatActivity {
     public ArrayList<Directory> filedirectory() {
         //여기 원래 매개변수로 스트링 들어와야합니다.
 
+
         String s = "{\r\n" +
                 "  \"data\": {\r\n" +
                 "    \"repository\": {\r\n" +

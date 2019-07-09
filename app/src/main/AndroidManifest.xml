@@ -32,14 +32,15 @@
         </activity>
 
         <activity android:name=".firebase.login.MainActivity">
+        </activity>
+
+        <activity android:name=".fileDirectory.WhenGetDirectory">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name=".gitSource.WhenGetDirectory"/>
 
         <activity android:name=".CListActivity"/>
 
@@ -52,5 +53,7 @@
             android:name=".firebase.calendar.write_diaryActivity"
             android:theme="@style/AppTheme.NoActionBar" />
 
+        <activity android:name=".fileDirectory.dListActivity"/>
+        <activity android:name=".fileDirectory.FileDirectory"/>
     </application>
 </manifest>

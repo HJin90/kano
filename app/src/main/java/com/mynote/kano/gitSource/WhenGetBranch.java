@@ -34,14 +34,13 @@ public class WhenGetBranch extends AppCompatActivity {
             } catch (Exception e) {
                 Log.e("error", e.toString(), e);
             } finally {
-                //text 세팅하는 방법 - 예시
+                //This is sample how to use data!
                 TextView textView = findViewById(R.id.textView2);
                 textView.setText(dataString);
             }
         }
     }
 
-    //Dirctory
     class NewThread extends Thread {
         public void run(String owner_name, String repository_name) {
 
@@ -54,15 +53,11 @@ public class WhenGetBranch extends AppCompatActivity {
                     .repository_name(repository_name)
                     .build();
 
-
-            //loginId를 여기에 넣으시면 됩니다.
             apolloClient.query(getQuery).enqueue(new ApolloCall.Callback<GetBranchQuery.Data>() {
                 @Override
                 public void onResponse(Response<GetBranchQuery.Data> response) {
-                    //데이터를 가져오는 식
-                    String k = response.data().toString();
-                    dataString = k;
-                    Log.v("?",k);
+                    String respon = response.data().toString();
+                    dataString = respon;
                     return;
                 }
 
